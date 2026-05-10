@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Penn Writings — Premium Academic Support, Tutoring & Editing for Students</title>
+<meta name="description" content="Penn Writings offers premium academic support, tutoring, editing, and research guidance for university students. Essay help, dissertation support, referencing, and proofreading — confidential and student-friendly." />
+<meta name="author" content="Penn Writings" />
+<meta property="og:title" content="Penn Writings — Premium Academic Support for University Students" />
+<meta property="og:description" content="Tutoring, editing, research guidance, and model answers for students worldwide." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://pennwritings.com/" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   PENN WRITINGS v2 — REFINED DESIGN SYSTEM
+   ============================================================ */
+
+:root {
+  --navy-900: #0b1f3a;
+  --navy-800: #102b4f;
+  --navy-700: #163a6b;
+  --navy-600: #1e4a82;
+  --gold-500: #c9a44c;
+  --gold-400: #d9b870;
+  --gold-300: #e6cc94;
+  --gold-100: rgba(201,164,76,0.1);
+  --cream-100: #faf6ef;
+  --cream-200: #f3ecdd;
+  --white: #ffffff;
+  --ink-900: #0a1628;
+  --ink-700: #2c3e57;
+  --ink-500: #5a6b80;
+  --ink-300: #a8b3c2;
+  --line: #e6dfd0;
+  --success: #2f8f63;
+  --danger: #c94a4a;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "DM Sans", -apple-system, sans-serif;
+  --container: 1200px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 2px 8px rgba(11,31,58,0.06);
+  --shadow-md: 0 8px 24px rgba(11,31,58,0.10);
+  --shadow-lg: 0 20px 60px rgba(11,31,58,0.18);
+  --shadow-gold: 0 8px 30px rgba(201,164,76,0.35);
+  --ease: cubic-bezier(0.4,0,0.2,1);
+  --ease-out: cubic-bezier(0.16,1,0.3,1);
+  --t-fast: 200ms;
+  --t-mid: 380ms;
+  --t-slow: 650ms;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-body);font-size:16px;line-height:1.65;color:var(--ink-700);background:var(--cream-100);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none;transition:color var(--t-fast) var(--ease)}
+button{font:inherit;cursor:pointer;border:none;background:none}
+input,textarea,select{font:inherit;color:inherit}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-display);font-weight:700;color:var(--navy-900);line-height:1.2;letter-spacing:-0.01em}
+h1{font-size:clamp(2.2rem,5vw,3.8rem)}
+h2{font-size:clamp(1.7rem,3.2vw,2.5rem)}
+h3{font-size:clamp(1.2rem,2vw,1.5rem)}
+h4{font-size:1.1rem}
+p{margin-bottom:1rem}
+:focus-visible{outline:2px solid var(--gold-500);outline-offset:3px;border-radius:3px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* ── UTILITIES ── */
+.container{width:100%;max-width:var(--container);margin:0 auto;padding:0 1.5rem}
+.section{padding:clamp(3.5rem,8vw,6rem) 0}
+.section-alt{background:var(--cream-200)}
+.text-center{text-align:center}
+.text-gold{color:var(--gold-500)}
+.accent{color:var(--gold-500);font-style:italic}
+
+.eyebrow{display:inline-block;font-family:var(--font-body);font-size:.78rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-500);margin-bottom:1rem;position:relative;padding-left:2.5rem}
+.eyebrow::before{content:"";position:absolute;left:0;top:50%;width:2rem;height:1px;background:var(--gold-500)}
+.eyebrow.center{padding-left:0}
+.eyebrow.center::before{display:none}
+.section-head{text-align:center;max-width:700px;margin:0 auto 3rem}
+.section-head .eyebrow{padding-left:0}
+.section-head .eyebrow::before{display:none}
+.section-head h2{margin-bottom:.8rem}
+.section-head p{color:var(--ink-500);font-size:1.02rem;line-height:1.75}
+
+/* ── REVEAL ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
+.reveal.is-visible{opacity:1;transform:none}
+.reveal-delay-1{transition-delay:.12s}
+.reveal-delay-2{transition-delay:.24s}
+.reveal-delay-3{transition-delay:.36s}
+.reveal-delay-4{transition-delay:.48s}
+
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.95rem 1.9rem;font-family:var(--font-body);font-weight:600;font-size:.95rem;letter-spacing:.02em;border-radius:var(--radius-pill);transition:all var(--t-mid) var(--ease);cursor:pointer;position:relative;overflow:hidden;white-space:nowrap;border:none}
+.btn-primary{background:linear-gradient(135deg,var(--gold-500),var(--gold-400));color:var(--navy-900);box-shadow:var(--shadow-gold)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(201,164,76,.45)}
+.btn-primary:active{transform:translateY(0)}
+.btn-secondary{background:var(--navy-900);color:var(--white)}
+.btn-secondary:hover{background:var(--navy-700);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--navy-900);border:2px solid var(--navy-900)}
+.btn-outline:hover{background:var(--navy-900);color:var(--white)}
+.btn-whatsapp{background:linear-gradient(135deg,#25d366,#1da851);color:#fff;box-shadow:0 8px 25px rgba(37,211,102,.3)}
+.btn-whatsapp:hover{transform:translateY(-2px);box-shadow:0 12px 35px rgba(37,211,102,.4)}
+.btn-outline-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5)}
+.btn-outline-white:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.btn-lg{padding:1.1rem 2.4rem;font-size:1.05rem}
+.btn-sm{padding:.65rem 1.35rem;font-size:.87rem}
+.btn-block{width:100%}
+
+/* ── PRELOADER ── */
+.preloader{position:fixed;inset:0;background:var(--navy-900);display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity .6s ease,visibility .6s ease}
+.preloader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.preloader-mark{width:64px;height:64px;border-radius:50%;background:transparent;border:3px solid var(--gold-500);display:grid;place-items:center;font-family:var(--font-display);font-style:italic;font-size:1.8rem;color:var(--gold-400);animation:pulse-ring 1.2s ease-in-out infinite}
+@keyframes pulse-ring{0%,100%{box-shadow:0 0 0 0 rgba(201,164,76,.4)}50%{box-shadow:0 0 0 14px rgba(201,164,76,0)}}
+
+/* ── HEADER / NAV — FIXED Z-INDEX ── */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,246,239,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(230,223,208,.5);transition:all var(--t-mid) var(--ease)}
+.site-header.scrolled{background:rgba(255,255,255,.97);box-shadow:0 4px 24px rgba(11,31,58,.08)}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.5rem;max-width:var(--container);margin:0 auto}
+.logo{display:flex;align-items:center;gap:.6rem;font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--navy-900);z-index:1010;position:relative}
+.logo-mark{width:40px;height:40px;background:linear-gradient(135deg,var(--navy-900),var(--navy-700));color:var(--gold-400);border-radius:50%;display:grid;place-items:center;font-family:var(--font-display);font-style:italic;font-size:1.2rem;border:2px solid var(--gold-500);flex-shrink:0}
+.nav-menu{display:flex;align-items:center;gap:1.75rem;list-style:none}
+.nav-menu a{font-size:.9rem;font-weight:500;color:var(--ink-700);position:relative;padding:.4rem 0;transition:color var(--t-fast) var(--ease)}
+.nav-menu a::after{content:"";position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--gold-500);transition:width var(--t-mid) var(--ease)}
+.nav-menu a:hover,.nav-menu a.active{color:var(--navy-900)}
+.nav-menu a:hover::after,.nav-menu a.active::after{width:100%}
+.nav-cta{display:flex;align-items:center;gap:.75rem}
+.hamburger{display:none;width:36px;height:36px;flex-direction:column;justify-content:center;align-items:center;gap:5px;z-index:1010;position:relative;border-radius:var(--radius-sm)}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy-900);border-radius:2px;transition:all var(--t-mid) var(--ease)}
+.hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.active span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* MOBILE NAV — FIXED OVERLAY Z-INDEX */
+@media(max-width:960px){
+  .nav-menu{
+    position:fixed;
+    top:0;left:0;right:0;bottom:0;
+    background:var(--navy-900);
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:2.2rem;
+    z-index:1005;
+    transform:translateX(100%);
+    transition:transform var(--t-slow) var(--ease-out);
+    padding:5rem 2rem 2rem;
+  }
+  .nav-menu.open{transform:translateX(0)}
+  .nav-menu a{font-size:1.5rem;font-family:var(--font-display);color:var(--cream-100);font-weight:700}
+  .nav-menu a::after{background:var(--gold-500)}
+  .nav-menu a:hover,.nav-menu a.active{color:var(--gold-400)}
+  .hamburger{display:flex}
+  .hamburger.active span{background:var(--white)}
+  .nav-cta .btn{display:none}
+  /* Extra WhatsApp link in mobile menu */
+  .mobile-wa{display:flex!important}
+}
+@media(min-width:961px){.mobile-wa{display:none!important}}
+
+/* ── HERO ── */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding:calc(80px + 2rem) 0 3rem;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 40%,rgba(201,164,76,.12),transparent),
+    radial-gradient(ellipse 60% 80% at 20% 80%,rgba(22,58,107,.1),transparent),
+    linear-gradient(160deg,#0d2240 0%,#0b1f3a 50%,#0f2a4a 100%);
+  overflow:hidden;
+}
+/* Dot grid */
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.06) 1px,transparent 0);background-size:36px 36px;pointer-events:none}
+/* Gold arc */
+.hero::after{content:"";position:absolute;bottom:-1px;left:0;right:0;height:80px;background:var(--cream-100);clip-path:ellipse(55% 100% at 50% 100%)}
+
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem;align-items:center;position:relative;z-index:2}
+
+.hero-badge{display:inline-flex;align-items:center;gap:.6rem;background:rgba(201,164,76,.15);border:1px solid rgba(201,164,76,.3);border-radius:var(--radius-pill);padding:.45rem 1rem;font-size:.8rem;font-weight:600;color:var(--gold-400);letter-spacing:.06em;text-transform:uppercase;margin-bottom:1.5rem}
+.hero-badge-dot{width:8px;height:8px;border-radius:50%;background:var(--gold-400);animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+.hero-content h1{color:#fff;margin-bottom:1.5rem;letter-spacing:-.02em}
+.hero-content h1 em{color:var(--gold-400);font-style:italic}
+.hero-content h1 .underline-gold{position:relative;display:inline-block}
+.hero-content h1 .underline-gold::after{content:"";position:absolute;bottom:4px;left:0;width:100%;height:6px;background:linear-gradient(90deg,var(--gold-500),var(--gold-300));z-index:-1;opacity:.5;border-radius:3px}
+
+.hero-lead{font-size:clamp(1rem,1.4vw,1.12rem);color:rgba(255,255,255,.75);margin-bottom:2rem;max-width:500px;line-height:1.8}
+
+/* CTA BUTTONS — PROMINENT, SLIDING */
+.hero-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:2.5rem}
+.hero-actions .btn{font-size:1rem;padding:1rem 2rem;box-shadow:var(--shadow-lg)}
+.btn-hero-primary{background:linear-gradient(135deg,var(--gold-500),var(--gold-300));color:var(--navy-900)!important;font-weight:700}
+.btn-hero-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 16px 50px rgba(201,164,76,.5)}
+.btn-hero-wa{background:linear-gradient(135deg,#25d366,#1aaa50);color:#fff!important}
+.btn-hero-wa:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 16px 40px rgba(37,211,102,.45)}
+
+/* Trust pills below buttons */
+.hero-trust{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:2.5rem}
+.trust-pill{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:var(--radius-pill);padding:.35rem .9rem;font-size:.82rem;color:rgba(255,255,255,.85);font-weight:500}
+.trust-pill svg,.trust-pill span:first-child{color:var(--gold-400)}
+
+/* Hero stats */
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.12)}
+.hero-stat-num{font-family:var(--font-display);font-size:2rem;font-weight:700;color:#fff;line-height:1;display:block}
+.hero-stat-num sup{font-size:1rem;color:var(--gold-400)}
+.hero-stat-label{font-size:.8rem;color:rgba(255,255,255,.6);margin-top:.3rem;text-transform:uppercase;letter-spacing:.05em}
+
+/* Hero visual — teacher preview cards */
+.hero-visual{position:relative;height:520px}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+.hero-card{position:absolute;background:rgba(255,255,255,.04);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1.25rem;box-shadow:var(--shadow-lg)}
+.hero-card-main{top:0;right:0;width:270px;animation:float 7s ease-in-out infinite}
+.hero-card-main .card-label{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--gold-400);margin-bottom:.8rem}
+.hero-card-main .rating{display:flex;align-items:center;gap:.4rem;margin-top:.6rem;font-size:.82rem;color:rgba(255,255,255,.7)}
+.hero-card-main .stars{color:#f4c542;letter-spacing:2px}
+
+.hero-card-side{bottom:40px;left:0;width:240px;animation:float2 7s ease-in-out infinite 2s;background:rgba(201,164,76,.12);border-color:rgba(201,164,76,.25)}
+.hero-card-center{top:50%;left:50%;transform:translate(-35%,-50%);width:200px;background:var(--navy-900);border-color:var(--gold-500);text-align:center;animation:float 7s ease-in-out infinite 1s}
+
+.teacher-mini{display:flex;align-items:center;gap:.8rem}
+.teacher-avatar{width:44px;height:44px;border-radius:50%;border:2px solid var(--gold-500);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-style:italic;font-weight:700;font-size:1.1rem;color:var(--gold-400)}
+.teacher-avatar.bg1{background:linear-gradient(135deg,#1e3a5f,#2d5a8e)}
+.teacher-avatar.bg2{background:linear-gradient(135deg,#1a4a3a,#2d7a5e)}
+.teacher-avatar.bg3{background:linear-gradient(135deg,#3a1e1e,#6b3030)}
+.teacher-avatar.bg4{background:linear-gradient(135deg,#2a1a4a,#4a2d7a)}
+.teacher-info-name{font-family:var(--font-display);font-weight:700;font-size:.92rem;color:#fff;line-height:1.2}
+.teacher-info-deg{font-size:.75rem;color:rgba(255,255,255,.6);margin-top:.2rem}
+
+.card-stat{margin-top:.8rem;padding-top:.8rem;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center}
+.card-stat-val{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--gold-400)}
+.card-stat-lbl{font-size:.72rem;color:rgba(255,255,255,.55);text-transform:uppercase}
+
+.order-mini{margin-top:.7rem}
+.order-mini-title{font-size:.78rem;color:var(--gold-400);font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem}
+.order-mini-item{font-size:.82rem;color:rgba(255,255,255,.8);display:flex;align-items:center;gap:.4rem;margin-bottom:.25rem}
+.order-dot{width:6px;height:6px;border-radius:50%;background:var(--gold-400);flex-shrink:0}
+
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr;text-align:center;gap:2.5rem}
+  .hero-lead{margin-left:auto;margin-right:auto}
+  .hero-actions{justify-content:center}
+  .hero-trust{justify-content:center}
+  .hero-stats{grid-template-columns:repeat(3,1fr)}
+  .hero-visual{height:280px;margin-top:-1rem}
+  .hero-card-main{top:0;right:0;width:200px;padding:1rem}
+  .hero-card-side{display:none}
+  .hero-card-center{width:160px;padding:1rem}
+}
+@media(max-width:560px){
+  .hero-visual{height:200px}
+  .hero-card-main{width:170px;font-size:.85em}
+}
+
+/* ── SLIDING ANNOUNCEMENT BANNER ── */
+.announcement-bar{background:linear-gradient(90deg,var(--navy-800),var(--navy-700));color:#fff;padding:.55rem 0;overflow:hidden;position:relative}
+.announcement-bar::before,.announcement-bar::after{content:"";position:absolute;top:0;bottom:0;width:80px;z-index:2}
+.announcement-bar::before{left:0;background:linear-gradient(90deg,var(--navy-800),transparent)}
+.announcement-bar::after{right:0;background:linear-gradient(-90deg,var(--navy-800),transparent)}
+.ticker-wrap{display:flex;align-items:center;gap:0}
+.ticker-track{display:flex;gap:3rem;animation:ticker 30s linear infinite;white-space:nowrap;will-change:transform}
+.ticker-track:hover{animation-play-state:paused}
+.ticker-item{display:inline-flex;align-items:center;gap:.6rem;font-size:.82rem;font-weight:500;color:rgba(255,255,255,.85)}
+.ticker-sep{color:var(--gold-400);font-size:1.2rem;flex-shrink:0}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── HOW IT WORKS ── */
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;counter-reset:steps}
+@media(max-width:900px){.steps-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.steps-grid{grid-template-columns:1fr}}
+.step-card{position:relative;background:#fff;padding:2rem 1.5rem;border-radius:var(--radius-lg);border:1px solid var(--line);box-shadow:var(--shadow-sm);transition:transform .3s ease,box-shadow .3s ease;counter-increment:steps}
+.step-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
+.step-card::before{content:counter(steps);position:absolute;top:-16px;left:1.5rem;width:36px;height:36px;background:linear-gradient(135deg,var(--gold-500),var(--gold-400));color:var(--navy-900);border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:.9rem;font-family:var(--font-display);box-shadow:0 4px 12px rgba(201,164,76,.35)}
+.step-icon{font-size:2.2rem;margin-bottom:1rem}
+.step-card h4{margin-bottom:.5rem;font-size:1.05rem}
+.step-card p{color:var(--ink-500);font-size:.9rem;margin:0;line-height:1.65}
+
+/* ── SERVICES ── */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+@media(max-width:900px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.services-grid{grid-template-columns:1fr}}
+.service-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.75rem 1.5rem;position:relative;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease;cursor:pointer}
+.service-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold-500),var(--gold-300));transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.service-card:hover::before{transform:scaleX(1)}
+.service-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
+.service-icon{width:52px;height:52px;border-radius:var(--radius-md);background:var(--cream-200);display:grid;place-items:center;font-size:1.6rem;margin-bottom:1.25rem;transition:background .3s ease}
+.service-card:hover .service-icon{background:var(--gold-100)}
+.service-card h3{font-size:1.1rem;margin-bottom:.5rem}
+.service-card p{color:var(--ink-500);font-size:.9rem;margin-bottom:1rem;line-height:1.65}
+.service-tag{display:inline-block;font-size:.75rem;font-weight:600;color:var(--gold-500);background:var(--gold-100);border-radius:var(--radius-pill);padding:.2rem .75rem}
+
+/* ── TEACHERS SECTION ── */
+.teachers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.75rem}
+@media(max-width:1000px){.teachers-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.teachers-grid{grid-template-columns:1fr}}
+.teacher-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.teacher-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
+.teacher-card-top{height:140px;position:relative;display:flex;align-items:flex-end;justify-content:center;padding-bottom:0}
+.teacher-card-top.c1{background:linear-gradient(135deg,#0b2a4a 0%,#163a6b 100%)}
+.teacher-card-top.c2{background:linear-gradient(135deg,#0a2a1a 0%,#0f4a2e 100%)}
+.teacher-card-top.c3{background:linear-gradient(135deg,#2a1a0a 0%,#4a3010 100%)}
+.teacher-card-top.c4{background:linear-gradient(135deg,#1a0a2a 0%,#3a1a5a 100%)}
+.teacher-card-top.c5{background:linear-gradient(135deg,#0a1a2a 0%,#102040 100%)}
+.teacher-card-top.c6{background:linear-gradient(135deg,#2a0a0a 0%,#4a1515 100%)}
+.teacher-card-top.c7{background:linear-gradient(135deg,#0a2a2a 0%,#104040 100%)}
+.teacher-card-top.c8{background:linear-gradient(135deg,#1a1a0a 0%,#2a2a10 100%)}
+.teacher-avatar-lg{width:80px;height:80px;border-radius:50%;border:3px solid var(--gold-500);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-style:italic;font-size:2rem;font-weight:700;color:var(--gold-400);position:absolute;bottom:-30px;left:50%;transform:translateX(-50%);box-shadow:0 8px 20px rgba(0,0,0,.25)}
+.teacher-card-body{padding:2.5rem 1.25rem 1.5rem;text-align:center}
+.teacher-card-body h4{font-size:1.05rem;margin-bottom:.3rem}
+.teacher-degree{font-size:.8rem;color:var(--gold-500);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.6rem}
+.teacher-subjects{font-size:.82rem;color:var(--ink-500);margin-bottom:1rem;line-height:1.55}
+.teacher-stats{display:flex;justify-content:center;gap:1.5rem;padding-top:.75rem;border-top:1px solid var(--line)}
+.teacher-stat{text-align:center}
+.teacher-stat-val{display:block;font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--navy-900)}
+.teacher-stat-lbl{font-size:.7rem;color:var(--ink-500);text-transform:uppercase;letter-spacing:.06em}
+.teacher-badge{display:inline-flex;align-items:center;gap:.3rem;background:rgba(47,143,99,.1);color:var(--success);border-radius:var(--radius-pill);padding:.2rem .7rem;font-size:.72rem;font-weight:600;margin-bottom:.8rem}
+
+/* ── TESTIMONIALS ── */
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem}
+@media(max-width:900px){.testimonials-grid{grid-template-columns:1fr}}
+.testimonial-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.75rem;position:relative;box-shadow:var(--shadow-sm);transition:transform .3s ease,box-shadow .3s ease}
+.testimonial-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.testimonial-card::before{content:"\201C";position:absolute;top:.75rem;left:1.25rem;font-family:var(--font-display);font-size:5rem;line-height:1;color:var(--gold-300);pointer-events:none}
+.testimonial-text{font-size:.95rem;color:var(--ink-700);line-height:1.8;margin-bottom:1.25rem;padding-top:1.75rem;font-style:italic}
+.testimonial-author{display:flex;align-items:center;gap:.75rem}
+.testimonial-avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-style:italic;font-weight:700;font-size:1.1rem;color:#fff;flex-shrink:0}
+.ta1{background:linear-gradient(135deg,#3a5f8a,#1e3a5f)}
+.ta2{background:linear-gradient(135deg,#3a5a3a,#1e3a1e)}
+.ta3{background:linear-gradient(135deg,#5a3a5a,#3a1e3a)}
+.testimonial-name{font-weight:700;font-size:.92rem;color:var(--navy-900)}
+.testimonial-sub{font-size:.78rem;color:var(--ink-500);margin-top:.1rem}
+.testimonial-stars{color:#f4c542;font-size:.85rem;letter-spacing:2px;margin-top:.3rem}
+
+/* ── TRUST STRIP ── */
+.trust-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem 3rem;padding:2.5rem 0}
+.trust-item{display:flex;align-items:center;gap:.75rem;font-size:.9rem;font-weight:600;color:var(--ink-700)}
+.trust-item-icon{width:44px;height:44px;border-radius:50%;background:var(--cream-200);display:grid;place-items:center;font-size:1.3rem;flex-shrink:0;border:1px solid var(--line)}
+
+/* ── STATS COUNTER BAR ── */
+.stats-bar{background:linear-gradient(135deg,var(--navy-900),var(--navy-700));padding:3rem 0}
+.stats-bar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+@media(max-width:700px){.stats-bar-grid{grid-template-columns:repeat(2,1fr)}}
+.stats-bar-item{text-align:center}
+.stats-bar-num{font-family:var(--font-display);font-size:2.5rem;font-weight:700;color:#fff;display:block;line-height:1}
+.stats-bar-num sup{font-size:1.2rem;color:var(--gold-400)}
+.stats-bar-label{font-size:.82rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.08em;margin-top:.4rem}
+
+/* ── CTA BAND ── */
+.cta-band{background:linear-gradient(135deg,var(--navy-900) 0%,var(--navy-700) 100%);position:relative;overflow:hidden}
+.cta-band::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.04) 1px,transparent 0);background-size:28px 28px;pointer-events:none}
+.cta-band .container{position:relative;z-index:2;text-align:center}
+.cta-band h2{color:#fff;margin-bottom:1rem}
+.cta-band h2 .accent{color:var(--gold-400)}
+.cta-band p{color:rgba(255,255,255,.75);max-width:560px;margin:0 auto 2rem;font-size:1.05rem}
+.cta-band .actions{display:flex;justify-content:center;flex-wrap:wrap;gap:1rem}
+
+/* ── FOOTER ── */
+.site-footer{background:var(--navy-900);color:rgba(255,255,255,.7);padding:4rem 0 0}
+.footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1.2fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.08)}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.footer-grid{grid-template-columns:1fr}}
+.footer-logo{display:flex;align-items:center;gap:.6rem;font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:1rem}
+.footer-col p{font-size:.88rem;line-height:1.75;max-width:260px}
+.footer-col h5{color:#fff;font-family:var(--font-body);font-size:.82rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.25rem}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:.65rem}
+.footer-col ul a{font-size:.88rem;opacity:.75;transition:opacity var(--t-fast) var(--ease),color var(--t-fast) var(--ease)}
+.footer-col ul a:hover{opacity:1;color:var(--gold-400)}
+.footer-bottom{display:flex;flex-direction:column;align-items:center;gap:.75rem;padding:1.75rem 0;font-size:.82rem;opacity:.65;text-align:center}
+.footer-bottom a:hover{color:var(--gold-400);opacity:1}
+.integrity{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-md);padding:1rem 1.25rem;font-size:.8rem;line-height:1.7;max-width:700px;margin-top:.5rem;opacity:1!important;color:rgba(255,255,255,.6)}
+.integrity strong{color:rgba(255,255,255,.85)}
+
+/* ── FLOAT BUTTONS ── */
+.float-whatsapp{position:fixed;bottom:2rem;right:2rem;width:58px;height:58px;background:linear-gradient(135deg,#25d366,#1aaa50);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 8px 25px rgba(37,211,102,.45);z-index:990;animation:wa-pulse 2.5s ease-in-out infinite;transition:transform .2s ease}
+.float-whatsapp:hover{transform:scale(1.12)}
+@keyframes wa-pulse{0%,100%{box-shadow:0 8px 25px rgba(37,211,102,.45)}50%{box-shadow:0 8px 45px rgba(37,211,102,.7)}}
+.float-top{position:fixed;bottom:6.5rem;right:2rem;width:44px;height:44px;background:#fff;border-radius:50%;display:grid;place-items:center;color:var(--navy-900);box-shadow:var(--shadow-md);z-index:990;opacity:0;pointer-events:none;transition:opacity .3s ease,transform .3s ease;border:1px solid var(--line)}
+.float-top.visible{opacity:1;pointer-events:auto}
+.float-top:hover{transform:translateY(-3px)}
+</style>
+</head>
+<body>
+
+<!-- Preloader -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader-mark">P</div>
+</div>
+
+<!-- Header -->
+<header class="site-header" id="siteHeader">
+  <div class="nav-wrap">
+    <a href="index.html" class="logo" aria-label="Penn Writings home">
+      <span class="logo-mark">P</span>
+      <span>Penn Writings</span>
+    </a>
+
+    <nav aria-label="Primary">
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="upload-brief.html">Upload Brief</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <!-- Mobile only WhatsApp -->
+        <li class="mobile-wa" style="display:none">
+          <a href="https://wa.me/923120636227" target="_blank" rel="noopener" style="color:#25d366!important;display:flex;align-items:center;gap:.5rem">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.84 11.9L4 20l4.21-1.1a7.93 7.93 0 0 0 3.84.98h.01a7.94 7.94 0 0 0 5.54-13.56z"/></svg>
+            WhatsApp Us
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="nav-cta">
+      <a href="https://wa.me/923120636227" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="upload-brief.html" class="btn btn-primary btn-sm">Upload Brief</a>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-controls="navMenu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- Announcement ticker -->
+<div class="announcement-bar">
+  <div class="container">
+    <div class="ticker-wrap">
+      <div class="ticker-track" id="tickerTrack">
+        <span class="ticker-item"><span style="color:var(--gold-400)">✦</span> Confidential & Secure</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">📚 2,400+ Students Supported</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item"><span style="color:var(--gold-400)">★</span> 98% Satisfaction Rate</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">⚡ Response Within 1 Hour</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">🎓 PhD & Masters Specialists</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">🔒 NDA-Signed Tutors</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">✅ Free Plagiarism Check Included</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">🌍 UK · Australia · USA · Canada</span>
+        <span class="ticker-sep">·</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="ticker-item"><span style="color:var(--gold-400)">✦</span> Confidential & Secure</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">📚 2,400+ Students Supported</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item"><span style="color:var(--gold-400)">★</span> 98% Satisfaction Rate</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">⚡ Response Within 1 Hour</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">🎓 PhD & Masters Specialists</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">🔒 NDA-Signed Tutors</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">✅ Free Plagiarism Check Included</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">🌍 UK · Australia · USA · Canada</span>
+        <span class="ticker-sep">·</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Trusted by 2,400+ University Students
+      </div>
+      <h1>Get Your <span class="underline-gold">Assignments</span> Done by <em>Verified Experts</em></h1>
+      <p class="hero-lead">
+        Real tutors. Real degrees. Model answers, editing, dissertations, and research support — delivered confidentially, built for your learning.
+      </p>
+
+      <!-- PROMINENT CTA BUTTONS -->
+      <div class="hero-actions">
+        <a href="upload-brief.html" class="btn btn-lg btn-hero-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Upload Your Brief
+        </a>
+        <a href="https://wa.me/923120636227" class="btn btn-lg btn-hero-wa" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.84 11.9L4 20l4.21-1.1a7.93 7.93 0 0 0 3.84.98h.01a7.94 7.94 0 0 0 5.54-13.56z"/></svg>
+          WhatsApp Us Now
+        </a>
+      </div>
+
+      <!-- Trust pills -->
+      <div class="hero-trust">
+        <span class="trust-pill">✅ Free plagiarism check</span>
+        <span class="trust-pill">🔒 100% confidential</span>
+        <span class="trust-pill">↻ Free revisions</span>
+        <span class="trust-pill">⚡ 24/7 support</span>
+      </div>
+
+      <!-- Stats -->
+      <div class="hero-stats">
+        <div>
+          <span class="hero-stat-num"><span data-counter="2400" data-suffix="+">2400+</span></span>
+          <div class="hero-stat-label">Students helped</div>
+        </div>
+        <div>
+          <span class="hero-stat-num"><span data-counter="98" data-suffix="%">98%</span></span>
+          <div class="hero-stat-label">Satisfaction rate</div>
+        </div>
+        <div>
+          <span class="hero-stat-num"><span data-counter="50" data-suffix="+">50+</span></span>
+          <div class="hero-stat-label">Expert tutors</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero visual cards -->
+    <div class="hero-visual">
+      <!-- Card 1: Expert tutor preview -->
+      <div class="hero-card hero-card-main">
+        <div class="card-label">✦ Featured Expert</div>
+        <div class="teacher-mini">
+          <div class="teacher-avatar bg1">D</div>
+          <div>
+            <div class="teacher-info-name">Dr. David M.</div>
+            <div class="teacher-info-deg">PhD Economics · Oxford</div>
+          </div>
+        </div>
+        <div class="card-stat">
+          <div><span class="card-stat-val">312</span><div class="card-stat-lbl">Orders</div></div>
+          <div><span class="card-stat-val" style="color:#f4c542">★ 4.9</span><div class="card-stat-lbl">Rating</div></div>
+          <div><span class="card-stat-val">100%</span><div class="card-stat-lbl">On-time</div></div>
+        </div>
+      </div>
+
+      <!-- Card 2: Active order -->
+      <div class="hero-card hero-card-side">
+        <div class="order-mini-title">📋 Active Now</div>
+        <div class="order-mini-item"><span class="order-dot"></span><span style="color:rgba(255,255,255,.85);font-size:.82rem">Dissertation — Chapter 3</span></div>
+        <div class="order-mini-item"><span class="order-dot"></span><span style="color:rgba(255,255,255,.85);font-size:.82rem">Harvard MBA Case Study</span></div>
+        <div class="order-mini-item"><span class="order-dot"></span><span style="color:rgba(255,255,255,.85);font-size:.82rem">APA 7 Referencing Fix</span></div>
+        <div style="margin-top:.8rem;font-size:.75rem;color:var(--gold-400);font-weight:600">+12 orders in queue</div>
+      </div>
+
+      <!-- Card 3: centre dark -->
+      <div class="hero-card hero-card-center">
+        <div style="font-size:2rem;margin-bottom:.4rem">🎓</div>
+        <div style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--gold-400);margin-bottom:.3rem">Get Started</div>
+        <div style="font-size:.78rem;color:rgba(255,255,255,.65);line-height:1.5">Upload brief → matched in minutes</div>
+        <a href="upload-brief.html" style="display:block;margin-top:.8rem;background:var(--gold-500);color:var(--navy-900);text-align:center;padding:.45rem .9rem;border-radius:var(--radius-pill);font-size:.8rem;font-weight:700">Upload Now →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section style="background:#fff;padding:2rem 0;border-bottom:1px solid var(--line)">
+  <div class="container">
+    <div class="trust-strip">
+      <div class="trust-item reveal"><span class="trust-item-icon">🔒</span> NDA-Signed Experts</div>
+      <div class="trust-item reveal reveal-delay-1"><span class="trust-item-icon">✅</span> Plagiarism-Free Guaranteed</div>
+      <div class="trust-item reveal reveal-delay-2"><span class="trust-item-icon">🎓</span> PhD & Masters Qualified</div>
+      <div class="trust-item reveal reveal-delay-3"><span class="trust-item-icon">⏱</span> 24/7 Availability</div>
+      <div class="trust-item reveal reveal-delay-4"><span class="trust-item-icon">↻</span> Unlimited Free Revisions</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow center">Simple Process</span>
+      <h2>From Brief to <em>Delivered</em> in 4 Steps</h2>
+      <p>No complicated sign-ups. No waiting days for a response. Just upload, confirm, and receive expert work.</p>
+    </div>
+    <div class="steps-grid" style="margin-top:3rem">
+      <div class="step-card reveal">
+        <div class="step-icon">📋</div>
+        <h4>Upload Your Brief</h4>
+        <p>Share your assignment details, deadline, and any notes. Takes less than 2 minutes.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-1">
+        <div class="step-icon">🎓</div>
+        <h4>Get Matched</h4>
+        <p>We assign a subject specialist with the right degree for your topic. Always a human expert.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-2">
+        <div class="step-icon">✍</div>
+        <h4>We Get to Work</h4>
+        <p>Your tutor writes, edits, or researches — with direct communication throughout.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-3">
+        <div class="step-icon">🚀</div>
+        <h4>Receive & Review</h4>
+        <p>Delivered before deadline, plagiarism-checked. Free revisions until you're satisfied.</p>
+      </div>
+    </div>
+    <div class="text-center" style="margin-top:2.5rem">
+      <a href="upload-brief.html" class="btn btn-primary btn-lg">Upload Your Brief Now →</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-bar-grid">
+      <div class="stats-bar-item reveal">
+        <span class="stats-bar-num"><span data-counter="2400" data-suffix="+">2400+</span></span>
+        <div class="stats-bar-label">Students Supported</div>
+      </div>
+      <div class="stats-bar-item reveal reveal-delay-1">
+        <span class="stats-bar-num"><span data-counter="98" data-suffix="%">98%</span></span>
+        <div class="stats-bar-label">Satisfaction Rate</div>
+      </div>
+      <div class="stats-bar-item reveal reveal-delay-2">
+        <span class="stats-bar-num"><span data-counter="50" data-suffix="+">50+</span></span>
+        <div class="stats-bar-label">Expert Tutors</div>
+      </div>
+      <div class="stats-bar-item reveal reveal-delay-3">
+        <span class="stats-bar-num"><span data-counter="12" data-suffix="+">12+</span></span>
+        <div class="stats-bar-label">Disciplines Covered</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MEET OUR EXPERTS -->
+<section class="section section-alt" id="experts">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow center">Our Expert Tutors</span>
+      <h2>Meet the People <em>Behind Your Work</em></h2>
+      <p>Every tutor holds a postgraduate degree in their field. No generalists — only genuine subject experts who know exactly what your marker is looking for.</p>
+    </div>
+
+    <div class="teachers-grid">
+
+      <!-- Teacher 1 -->
+      <div class="teacher-card reveal">
+        <div class="teacher-card-top c1">
+          <div class="teacher-avatar-lg" style="background:linear-gradient(135deg,#1e3a5f,#2d5a8e)">D</div>
+        </div>
+        <div class="teacher-card-body">
+          <span class="teacher-badge">✓ Verified</span>
+          <h4>Dr. David Mitchell</h4>
+          <div class="teacher-degree">PhD — Economics</div>
+          <p class="teacher-subjects">Macroeconomics · Finance · Business Strategy · MBA Assignments</p>
+          <div class="teacher-stats">
+            <div class="teacher-stat"><span class="teacher-stat-val">312</span><span class="teacher-stat-lbl">Orders</span></div>
+            <div class="teacher-stat"><span class="teacher-stat-val" style="color:var(--gold-500)">★ 4.9</span><span class="teacher-stat-lbl">Rating</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Teacher 2 -->
+      <div class="teacher-card reveal reveal-delay-1">
+        <div class="teacher-card-top c2">
+          <div class="teacher-avatar-lg" style="background:linear-gradient(135deg,#0a3a1a,#1a5a2e)">S</div>
+        </div>
+        <div class="teacher-card-body">
+          <span class="teacher-badge">✓ Verified</span>
+          <h4>Dr. Sarah Patel</h4>
+          <div class="teacher-degree">PhD — Psychology</div>
+          <p class="teacher-subjects">Clinical Psychology · Research Methods · Literature Reviews · APA 7</p>
+          <div class="teacher-stats">
+            <div class="teacher-stat"><span class="teacher-stat-val">278</span><span class="teacher-stat-lbl">Orders</span></div>
+            <div class="teacher-stat"><span class="teacher-stat-val" style="color:var(--gold-500)">★ 5.0</span><span class="teacher-stat-lbl">Rating</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Teacher 3 -->
+      <div class="teacher-card reveal reveal-delay-2">
+        <div class="teacher-card-top c3">
+          <div class="teacher-avatar-lg" style="background:linear-gradient(135deg,#3a2010,#6a3a1a)">J</div>
+        </div>
+        <div class="teacher-card-body">
+          <span class="teacher-badge">✓ Verified</span>
+          <h4>James O'Brien</h4>
+          <div class="teacher-degree">LLM — Law (Barrister)</div>
+          <p class="teacher-subjects">Contract Law · Criminal Law · OSCOLA Referencing · Case Analysis</p>
+          <div class="teacher-stats">
+            <div class="teacher-stat"><span class="teacher-stat-val">194</span><span class="teacher-stat-lbl">Orders</span></div>
+            <div class="teacher-stat"><span class="teacher-stat-val" style="color:var(--gold-500)">★ 4.8</span><span class="teacher-stat-lbl">Rating</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Teacher 4 -->
+      <div class="teacher-card reveal reveal-delay-3">
+        <div class="teacher-card-top c4">
+          <div class="teacher-avatar-lg" style="background:linear-gradient(135deg,#2a1a4a,#4a2a7a)">A</div>
+        </div>
+        <div class="teacher-card-body">
+          <span class="teacher-badge">✓ Verified</span>
+          <h4>Aisha Karimi</h4>
+          <div class="teacher-degree">MSc — Computer Science</div>
+          <p class="teacher-subjects">AI / ML · Software Engineering · Data Analysis · Research Papers</p>
+          <div class="teacher-stats">
+            <div class="teacher-stat"><span class="teacher-stat-val">243</span><span class="teacher-stat-lbl">Orders</span></div>
+            <div class="teacher-stat"><span class="teacher-stat-val" style="color:var(--gold-500)">★ 4.9</span><span class="teacher-stat-lbl">Rating</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Teacher 5 -->
+      <div class="teacher-card reveal">
+        <div class="teacher-card-top c5">
+          <div class="teacher-avatar-lg" style="background:linear-gradient(135deg,#0a1a3a,#1a3060)">R</div>
+        </div>
+        <div class="teacher-card-body">
+          <span class="teacher-badge">✓ Verified</span>
+          <h4>Dr. Reza Ahmadi</h4>
+          <div class="teacher-degree">PhD — Engineering</div>
+          <p class="teacher-subjects">Mechanical · Civil · Thermodynamics · Technical Reports · IEEE</p>
+          <div class="teacher-stats">
+            <div class="teacher-stat"><span class="teacher-stat-val">167</span><span class="teacher-stat-lbl">Orders</span></div>
+            <div class="teacher-stat"><span class="teacher-stat-val" style="color:var(--gold-500)">★ 4.8</span><span class="teacher-stat-lbl">Rating</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Teacher 6 -->
+      <div class="teacher-card reveal reveal-delay-1">
+        <div class="teacher-card-top c6">
+          <div class="teacher-avatar-lg" style="background:linear-gradient(135deg,#3a0a0a,#5a1515)">E</div>
+        </div>
+        <div class="teacher-card-body">
+          <span class="teacher-badge">✓ Verified</span>
+          <h4>Emma Thornton</h4>
+          <div class="teacher-degree">MA — English Literature</div>
+          <p class="teacher-subjects">Essay Writing · Critical Analysis · Proofreading · Harvard / MLA</p>
+          <div class="teacher-stats">
+            <div class="teacher-stat"><span class="teacher-stat-val">389</span><span class="teacher-stat-lbl">Orders</span></div>
+            <div class="teacher-stat"><span class="teacher-stat-val" style="color:var(--gold-500)">★ 5.0</span><span class="teacher-stat-lbl">Rating</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Teacher 7 -->
+      <div class="teacher-card reveal reveal-delay-2">
+        <div class="teacher-card-top c7">
+          <div class="teacher-avatar-lg" style="background:linear-gradient(135deg,#0a2a2a,#104040)">M</div>
+        </div>
+        <div class="teacher-card-body">
+          <span class="teacher-badge">✓ Verified</span>
+          <h4>Dr. Marcus Webb</h4>
+          <div class="teacher-degree">PhD — Nursing / Medicine</div>
+          <p class="teacher-subjects">Healthcare · Clinical Studies · Reflective Practice · Vancouver</p>
+          <div class="teacher-stats">
+            <div class="teacher-stat"><span class="teacher-stat-val">221</span><span class="teacher-stat-lbl">Orders</span></div>
+            <div class="teacher-stat"><span class="teacher-stat-val" style="color:var(--gold-500)">★ 4.9</span><span class="teacher-stat-lbl">Rating</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Teacher 8 -->
+      <div class="teacher-card reveal reveal-delay-3">
+        <div class="teacher-card-top c8">
+          <div class="teacher-avatar-lg" style="background:linear-gradient(135deg,#1a1a0a,#2a2a10)">N</div>
+        </div>
+        <div class="teacher-card-body">
+          <span class="teacher-badge">✓ Verified</span>
+          <h4>Nadia Fontaine</h4>
+          <div class="teacher-degree">MSc — International Business</div>
+          <p class="teacher-subjects">Marketing · SWOT / PESTEL · Strategy · Proposals · MBA</p>
+          <div class="teacher-stats">
+            <div class="teacher-stat"><span class="teacher-stat-val">298</span><span class="teacher-stat-lbl">Orders</span></div>
+            <div class="teacher-stat"><span class="teacher-stat-val" style="color:var(--gold-500)">★ 4.9</span><span class="teacher-stat-lbl">Rating</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center" style="margin-top:3rem">
+      <p style="color:var(--ink-500);margin-bottom:1rem">50+ verified experts across all major disciplines.</p>
+      <a href="upload-brief.html" class="btn btn-primary btn-lg">Get Matched to Your Expert →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow center">What We Offer</span>
+      <h2>Every Type of Academic <em>Support</em></h2>
+      <p>From a single essay to a full dissertation — our tutors cover all subjects, formats, and referencing styles.</p>
+    </div>
+    <div class="services-grid" style="margin-top:2.5rem">
+      <div class="service-card reveal">
+        <div class="service-icon">📝</div>
+        <h3>Essay Writing</h3>
+        <p>Structured, well-argued model essays at undergraduate to Masters level. Any topic, any referencing style.</p>
+        <span class="service-tag">Most Popular</span>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">📚</div>
+        <h3>Dissertation Support</h3>
+        <p>Full chapters or complete dissertations — literature review, methodology, findings, discussion.</p>
+        <span class="service-tag">PhD Experts</span>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">🔍</div>
+        <h3>Research Proposals</h3>
+        <p>Research questions, methodology design, and literature groundwork your supervisor will approve.</p>
+        <span class="service-tag">All Disciplines</span>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">✏</div>
+        <h3>Editing & Proofreading</h3>
+        <p>Grammar, structure, argument flow, academic tone — full editorial review of your existing draft.</p>
+        <span class="service-tag">Quick Turnaround</span>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">📊</div>
+        <h3>Business Assignments</h3>
+        <p>Case studies, SWOT/PESTEL, strategic reports, presentations, and MBA-level work.</p>
+        <span class="service-tag">MBA Specialists</span>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">📖</div>
+        <h3>Referencing & Formatting</h3>
+        <p>Harvard, APA 7, MLA, Chicago, OSCOLA, Vancouver, IEEE — formatted flawlessly.</p>
+        <span class="service-tag">8+ Styles</span>
+      </div>
+    </div>
+    <div class="text-center" style="margin-top:2.5rem">
+      <a href="services.html" class="btn btn-outline">View All Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow center">Student Reviews</span>
+      <h2>Trusted by Students <em>Worldwide</em></h2>
+      <p>Real feedback from real students. No made-up names, no stock photos.</p>
+    </div>
+    <div class="testimonials-grid" style="margin-top:2.5rem">
+      <div class="testimonial-card reveal">
+        <p class="testimonial-text">I was two days from my dissertation deadline and completely stuck on the methodology chapter. David had a full draft to me in 18 hours. Got a 72 — best mark of my entire degree.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar ta1">S</div>
+          <div>
+            <div class="testimonial-name">Sarah M.</div>
+            <div class="testimonial-sub">MSc Marketing — University of Leeds</div>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-1">
+        <p class="testimonial-text">I've used Penn Writings three times now. Each time the work is better than I expected — well-structured, cited properly, and actually sounds like academic writing. Genuinely worth it.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar ta2">J</div>
+          <div>
+            <div class="testimonial-name">James T.</div>
+            <div class="testimonial-sub">BA Business — Monash University, Australia</div>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <p class="testimonial-text">As an international student English is my second language. Emma edited my whole essay and the improvement was incredible — my tutor actually asked if I'd taken a writing course.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar ta3">A</div>
+          <div>
+            <div class="testimonial-name">Aisha K.</div>
+            <div class="testimonial-sub">LLB Law — King's College London</div>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING TEASER -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow center">Transparent Pricing</span>
+      <h2>No Hidden Fees, <em>Ever</em></h2>
+      <p>Quoted before you commit. Starting from £35 / $45 per 1,000 words at undergraduate level.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;max-width:860px;margin-left:auto;margin-right:auto" class="pricing-tease">
+      <div class="reveal" style="background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:2rem 1.5rem;text-align:center;box-shadow:var(--shadow-sm)">
+        <div style="font-size:1.8rem;margin-bottom:.5rem">📄</div>
+        <h4>Standard</h4>
+        <div style="font-size:1.6rem;font-family:var(--font-display);color:var(--navy-900);font-weight:700;margin:.5rem 0">$45<span style="font-size:.9rem;color:var(--ink-500);font-family:var(--font-body);font-weight:400">/1k words</span></div>
+        <p style="font-size:.85rem;color:var(--ink-500);margin:0">Undergraduate · 7 days · 2 revisions</p>
+      </div>
+      <div class="reveal reveal-delay-1" style="background:linear-gradient(135deg,var(--navy-900),var(--navy-700));border:2px solid var(--gold-500);border-radius:var(--radius-lg);padding:2rem 1.5rem;text-align:center;transform:scale(1.04);box-shadow:var(--shadow-lg)">
+        <div style="font-size:1.8rem;margin-bottom:.5rem">🎓</div>
+        <h4 style="color:#fff">Advanced</h4>
+        <div style="font-size:1.6rem;font-family:var(--font-display);color:var(--gold-400);font-weight:700;margin:.5rem 0">$65<span style="font-size:.9rem;color:rgba(255,255,255,.6);font-family:var(--font-body);font-weight:400">/1k words</span></div>
+        <p style="font-size:.85rem;color:rgba(255,255,255,.65);margin:0">Masters · 3-5 days · Unlimited revisions</p>
+      </div>
+      <div class="reveal reveal-delay-2" style="background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:2rem 1.5rem;text-align:center;box-shadow:var(--shadow-sm)">
+        <div style="font-size:1.8rem;margin-bottom:.5rem">💎</div>
+        <h4>Premium</h4>
+        <div style="font-size:1.6rem;font-family:var(--font-display);color:var(--navy-900);font-weight:700;margin:.5rem 0">$95<span style="font-size:.9rem;color:var(--ink-500);font-family:var(--font-body);font-weight:400">/1k words</span></div>
+        <p style="font-size:.85rem;color:var(--ink-500);margin:0">PhD level · Priority · 1-on-1 sessions</p>
+      </div>
+    </div>
+    <style>@media(max-width:600px){.pricing-tease{grid-template-columns:1fr!important}}</style>
+    <div class="text-center" style="margin-top:2rem">
+      <a href="pricing.html" class="btn btn-outline" style="margin-right:.75rem">See Full Pricing</a>
+      <a href="upload-brief.html" class="btn btn-primary">Get a Free Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-band section">
+  <div class="container">
+    <div class="reveal">
+      <span style="display:inline-block;font-size:3rem;margin-bottom:1rem">🎓</span>
+      <h2>Ready to <span class="accent">Elevate</span> Your Grade?</h2>
+      <p>Upload your brief in 2 minutes. Get matched to an expert. Receive polished, plagiarism-free work before your deadline.</p>
+      <div class="actions">
+        <a href="upload-brief.html" class="btn btn-primary btn-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Upload Your Brief
+        </a>
+        <a href="https://wa.me/923120636227" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.84 11.9L4 20l4.21-1.1a7.93 7.93 0 0 0 3.84.98h.01a7.94 7.94 0 0 0 5.54-13.56z"/></svg>
+          WhatsApp Us Now
+        </a>
+        <a href="contact.html" class="btn btn-outline-white btn-lg">Send a Message</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">
+          <span class="logo-mark">P</span>
+          Penn Writings
+        </div>
+        <p>Premium academic support for university students worldwide. Tutoring, editing, research guidance — built around your learning.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html">Essay Support</a></li>
+          <li><a href="services.html">Dissertation Help</a></li>
+          <li><a href="services.html">Editing & Proofreading</a></li>
+          <li><a href="services.html">Referencing</a></li>
+          <li><a href="services.html">Business & Management</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Get in Touch</h5>
+        <ul>
+          <li><a href="https://wa.me/923120636227" target="_blank" rel="noopener">💬 WhatsApp: +92 312 0636227</a></li>
+          <li><a href="mailto:hello@pennwritings.com">✉ hello@pennwritings.com</a></li>
+          <li><a href="upload-brief.html">📋 Upload a Brief</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Penn Writings. All rights reserved.</span>
+      <span><a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a> · <a href="#">Refund Policy</a></span>
+      <div class="integrity">
+        <strong>Academic Integrity Notice:</strong> Penn Writings provides tutoring, model answers, research guidance, editing, and learning support. All work is intended for reference, study, and skill development. Students are responsible for using our materials in line with their institution's academic integrity policies.
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/923120636227" class="float-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.84 11.9L4 20l4.21-1.1a7.93 7.93 0 0 0 3.84.98h.01a7.94 7.94 0 0 0 5.54-13.56zM12.05 18.5a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.6 6.6 0 1 1 12.23-3.5 6.6 6.6 0 0 1-6.64 6.6zm3.62-4.94c-.2-.1-1.17-.58-1.35-.64-.18-.07-.31-.1-.45.1-.13.2-.51.64-.62.77-.12.13-.23.15-.43.05-.2-.1-.84-.31-1.6-.99-.6-.53-.99-1.18-1.11-1.38-.12-.2-.01-.31.09-.4.09-.09.2-.23.3-.35.1-.12.13-.2.2-.33.06-.13.03-.25-.02-.35-.05-.1-.45-1.08-.62-1.48-.16-.39-.32-.34-.45-.35-.12 0-.25-.02-.39-.02-.13 0-.35.05-.53.25-.18.2-.7.68-.7 1.66 0 .98.71 1.92.81 2.05.1.13 1.4 2.13 3.4 2.99.47.2.84.32 1.13.41.48.15.91.13 1.25.08.38-.06 1.17-.48 1.34-.95.16-.46.16-.86.12-.94-.05-.1-.18-.15-.38-.25z"/></svg>
+</a>
+
+<!-- Back to top -->
+<button class="float-top" id="backTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+(function() {
+
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Preloader
+  window.addEventListener('load', function() {
+    const pl = document.getElementById('preloader');
+    if (pl) { setTimeout(() => pl.classList.add('hidden'), 400); }
+  });
+
+  // Header scroll state
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', function() {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+    const bt = document.getElementById('backTop');
+    if (bt) bt.classList.toggle('visible', window.scrollY > 600);
+  }, { passive: true });
+
+  // Back to top
+  const bt = document.getElementById('backTop');
+  if (bt) bt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Hamburger / mobile menu — FIXED (menu renders above everything)
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('navMenu');
+  if (hamburger && navMenu) {
+    hamburger.addEventListener('click', function() {
+      const isOpen = navMenu.classList.toggle('open');
+      hamburger.classList.toggle('active', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    // Close on link click
+    navMenu.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        navMenu.classList.remove('open');
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+    // Close on ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+        navMenu.classList.remove('open');
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  // Scroll reveal
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('is-visible'); });
+  }
+
+  // Animated counters
+  function animateCounter(el) {
+    const target = parseFloat(el.dataset.counter);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1800;
+    const start = performance.now();
+    function step(now) {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const val = target * eased;
+      el.textContent = (target % 1 === 0 ? Math.floor(val) : val.toFixed(1)) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if ('IntersectionObserver' in window) {
+    const cObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { animateCounter(e.target); cObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('[data-counter]').forEach(function(c) { cObs.observe(c); });
+  }
+
+})();
+</script>
+</body>
+</html>
