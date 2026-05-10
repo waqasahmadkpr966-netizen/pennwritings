@@ -1,554 +1,423 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Penn Writings – Professional Academic Support</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{--navy:#0f2342;--navy-mid:#1a3a6b;--gold:#c9a84c;--gold-light:#f0d080;--cream:#faf8f3;--white:#ffffff;--text-dark:#0f2342;--text-muted:#5a6a82;--border:#e4ddd0;--shadow:rgba(15,35,66,0.12);}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,35,66,0.97);backdrop-filter:blur(12px);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px;border-bottom:1px solid rgba(201,168,76,0.25);}
-.nav-logo{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:700;color:var(--white);letter-spacing:-0.5px;text-decoration:none;}
-.nav-logo span{color:var(--gold);}
-.nav-links{display:flex;gap:24px;list-style:none;align-items:center;}
-.nav-links a{color:rgba(255,255,255,0.78);text-decoration:none;font-size:0.84rem;font-weight:500;transition:color 0.2s;}
-.nav-links a:hover{color:var(--gold);}
-.nav-cta{background:var(--gold);color:var(--navy)!important;padding:9px 18px;border-radius:6px;font-weight:600!important;font-size:0.8rem!important;transition:background 0.2s,transform 0.15s!important;}
-.nav-cta:hover{background:var(--gold-light)!important;transform:translateY(-1px);}
-.nav-toggle{display:none;background:none;border:1px solid rgba(255,255,255,0.3);border-radius:6px;width:40px;height:36px;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0 9px;}
-.nav-toggle span{display:block;width:100%;height:1.5px;background:var(--white);border-radius:2px;}
-.mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(15,35,66,0.98);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.2);padding:20px 5%;z-index:999;flex-direction:column;gap:12px;}
-.mobile-menu.open{display:flex;}
-.mobile-menu a{color:rgba(255,255,255,0.78);text-decoration:none;font-size:0.95rem;font-weight:500;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.08);transition:color 0.2s;}
-.mobile-menu a:hover{color:var(--gold);}
-.mobile-menu a:last-child{border-bottom:none;}
-.hero{min-height:100vh;background:var(--navy);position:relative;display:flex;align-items:center;padding:100px 5% 60px;overflow:hidden;}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 50%,rgba(201,168,76,0.07) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 20% 80%,rgba(26,58,107,0.5) 0%,transparent 60%);}
-.hero-grid{position:absolute;inset:0;opacity:0.035;background-image:linear-gradient(rgba(255,255,255,0.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.5) 1px,transparent 1px);background-size:60px 60px;}
-.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 320px;gap:56px;align-items:center;width:100%;}
-.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.35);color:var(--gold);font-size:0.74rem;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;padding:7px 16px;border-radius:50px;margin-bottom:22px;animation:fadeUp 0.6s ease both;}
-.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite;}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,4vw,3.7rem);font-weight:900;color:var(--white);line-height:1.1;margin-bottom:18px;animation:fadeUp 0.6s 0.1s ease both;}
-.hero h1 em{font-style:italic;color:var(--gold);}
-.hero-lead{font-size:0.97rem;color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:34px;font-weight:300;animation:fadeUp 0.6s 0.2s ease both;}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp 0.6s 0.3s ease both;}
-.btn-primary{background:var(--gold);color:var(--navy);padding:13px 26px;border-radius:8px;font-weight:700;font-size:0.88rem;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s,transform 0.15s,box-shadow 0.2s;box-shadow:0 4px 20px rgba(201,168,76,0.3);}
-.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,168,76,0.4);}
-.btn-secondary{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.25);color:var(--white);padding:13px 26px;border-radius:8px;font-weight:500;font-size:0.88rem;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s,border-color 0.2s,transform 0.15s;}
-.btn-secondary:hover{background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.4);transform:translateY(-2px);}
-.hero-stats{display:flex;gap:32px;margin-top:44px;animation:fadeUp 0.6s 0.4s ease both;}
-.stat-num{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;color:var(--gold);line-height:1;}
-.stat-label{font-size:0.72rem;color:rgba(255,255,255,0.44);margin-top:3px;}
-.hero-cards{display:flex;flex-direction:column;gap:14px;animation:fadeLeft 0.7s 0.3s ease both;}
-@keyframes fadeLeft{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:translateX(0)}}
-.hcard{background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.18);border-radius:14px;padding:16px 20px;backdrop-filter:blur(10px);}
-.hcard-icon{font-size:1.2rem;margin-bottom:5px;display:block;}
-.hcard h4{font-family:'Playfair Display',serif;font-size:0.88rem;color:var(--white);margin-bottom:3px;}
-.hcard p{font-size:0.74rem;color:rgba(255,255,255,0.46);line-height:1.5;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-section{padding:84px 5%;}
-.section-label{display:inline-block;font-size:0.69rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:9px;}
-.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.85rem,2.8vw,2.6rem);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:11px;}
-.section-sub{font-size:0.93rem;color:var(--text-muted);line-height:1.8;font-weight:300;}
-.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.6s ease,transform 0.6s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-.intro-band{background:var(--navy);padding:36px 5%;text-align:center;}
-.intro-band p{font-size:0.97rem;color:rgba(255,255,255,0.7);max-width:800px;margin:0 auto;line-height:1.9;font-weight:300;}
-.intro-band strong{color:var(--gold);font-weight:600;}
-#services{background:var(--white);}
-.services-tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:36px;}
-.tab-btn{padding:9px 18px;border-radius:50px;border:1px solid var(--border);background:transparent;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:500;color:var(--text-muted);cursor:pointer;transition:all 0.2s;}
-.tab-btn.active,.tab-btn:hover{background:var(--navy);color:var(--white);border-color:var(--navy);}
-.service-panel{display:none;}
-.service-panel.active{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:18px;}
-.scard{background:var(--cream);border:1px solid var(--border);border-radius:14px;padding:24px 22px;transition:transform 0.25s,box-shadow 0.25s,border-color 0.25s;position:relative;overflow:hidden;}
-.scard::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--gold);transition:height 0.3s;border-radius:0 0 3px 3px;}
-.scard:hover::before{height:100%;}
-.scard:hover{transform:translateY(-5px);box-shadow:0 14px 34px var(--shadow);border-color:rgba(201,168,76,0.32);}
-.scard-icon{width:44px;height:44px;background:var(--navy);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;margin-bottom:14px;}
-.scard h3{font-family:'Playfair Display',serif;font-size:1rem;color:var(--navy);margin-bottom:8px;}
-.scard ul{list-style:none;display:flex;flex-direction:column;gap:5px;}
-.scard ul li{font-size:0.78rem;color:var(--text-muted);padding-left:13px;position:relative;line-height:1.5;}
-.scard ul li::before{content:'→';position:absolute;left:0;color:var(--gold);font-size:0.68rem;top:1px;}
-.scard-link{display:inline-flex;align-items:center;gap:5px;margin-top:12px;font-size:0.76rem;font-weight:600;color:var(--gold);text-decoration:none;transition:gap 0.2s;}
-.scard-link:hover{gap:9px;}
-.subjects-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
-.subject-chip{background:var(--navy);color:rgba(255,255,255,0.8);font-size:0.74rem;font-weight:500;padding:6px 14px;border-radius:50px;}
-#how-it-works{background:var(--cream);}
-.steps-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:26px;margin-top:46px;}
-.step{text-align:center;}
-.step-num{width:58px;height:58px;border-radius:50%;background:var(--navy);color:var(--gold);font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;border:2px solid var(--gold);transition:transform 0.2s;}
-.step:hover .step-num{transform:scale(1.08);}
-.step h4{font-family:'Playfair Display',serif;font-size:0.97rem;color:var(--navy);margin-bottom:6px;}
-.step p{font-size:0.8rem;color:var(--text-muted);line-height:1.7;}
-#pricing{background:var(--white);}
-.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin:36px 0 28px;}
-.price-card{border-radius:16px;padding:26px 22px;border:1px solid var(--border);background:var(--cream);position:relative;transition:transform 0.25s,box-shadow 0.25s;}
-.price-card:hover{transform:translateY(-5px);box-shadow:0 14px 34px var(--shadow);}
-.price-card.featured{background:var(--navy);border-color:var(--gold);}
-.price-card.featured .price-label,.price-card.featured .price-desc,.price-card.featured .price-features li{color:rgba(255,255,255,0.62);}
-.price-card.featured .price-title{color:var(--white);}
-.price-card.featured .price-amount{color:var(--gold);}
-.featured-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--navy);font-size:0.66rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 14px;border-radius:50px;white-space:nowrap;}
-.price-label{font-size:0.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:5px;}
-.price-title{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--navy);font-weight:700;margin-bottom:4px;}
-.price-amount{font-family:'Playfair Display',serif;font-size:2.3rem;font-weight:900;color:var(--navy);line-height:1;margin:12px 0 4px;}
-.price-amount sup{font-size:0.95rem;font-weight:600;vertical-align:top;margin-top:7px;display:inline-block;}
-.price-desc{font-size:0.76rem;color:var(--text-muted);margin-bottom:16px;}
-.price-divider{height:1px;background:var(--border);margin-bottom:14px;}
-.price-card.featured .price-divider{background:rgba(255,255,255,0.1);}
-.price-features{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:20px;}
-.price-features li{font-size:0.78rem;color:var(--text-muted);display:flex;align-items:flex-start;gap:7px;line-height:1.5;}
-.price-features li::before{content:'✓';color:var(--gold);font-weight:700;font-size:0.78rem;flex-shrink:0;}
-.price-btn{display:block;text-align:center;padding:10px;border-radius:8px;font-size:0.82rem;font-weight:600;text-decoration:none;transition:all 0.2s;}
-.price-btn-outline{border:1px solid var(--gold);color:var(--gold);}
-.price-btn-outline:hover{background:var(--gold);color:var(--navy);}
-.price-btn-fill{background:var(--gold);color:var(--navy);}
-.price-btn-fill:hover{background:var(--gold-light);}
-.pricing-table-wrap{overflow-x:auto;border-radius:14px;border:1px solid var(--border);margin-top:14px;}
-.pricing-table{width:100%;border-collapse:collapse;min-width:560px;}
-.pricing-table th{background:var(--navy);color:var(--gold);font-family:'Playfair Display',serif;font-size:0.85rem;font-weight:600;padding:13px 16px;text-align:left;}
-.pricing-table th:first-child{border-radius:13px 0 0 0;}
-.pricing-table th:last-child{border-radius:0 13px 0 0;text-align:center;}
-.pricing-table td{padding:11px 16px;font-size:0.82rem;border-bottom:1px solid var(--border);color:var(--text-dark);}
-.pricing-table td:last-child{text-align:center;font-weight:700;color:var(--navy);}
-.pricing-table tr:last-child td{border-bottom:none;}
-.pricing-table tr:nth-child(even) td{background:var(--cream);}
-.pricing-table tr:hover td{background:rgba(201,168,76,0.05);}
-.diss-row td{background:rgba(201,168,76,0.07)!important;font-weight:600;}
-.table-note{font-size:0.76rem;color:var(--text-muted);margin-top:11px;font-style:italic;}
-#testimonials{background:var(--navy);}
-#testimonials .section-title{color:var(--white);}
-#testimonials .section-sub{color:rgba(255,255,255,0.5);}
-.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:18px;margin-top:46px;}
-.tcard{background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.15);border-radius:14px;padding:24px 22px;transition:transform 0.25s,border-color 0.25s;}
-.tcard:hover{transform:translateY(-5px);border-color:rgba(201,168,76,0.38);}
-.stars{color:var(--gold);font-size:0.88rem;letter-spacing:2px;margin-bottom:11px;}
-.ttext{font-size:0.86rem;color:rgba(255,255,255,0.72);line-height:1.8;font-style:italic;font-weight:300;margin-bottom:16px;}
-.tauthor{display:flex;align-items:center;gap:10px;}
-.tavatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:700;color:var(--navy);flex-shrink:0;}
-.tname{font-size:0.83rem;font-weight:600;color:var(--white);}
-.trole{font-size:0.71rem;color:rgba(255,255,255,0.4);}
-#why-us{background:var(--cream);}
-.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:46px;}
-.why-items{display:flex;flex-direction:column;gap:14px;}
-.why-item{display:flex;gap:13px;align-items:flex-start;padding:15px 17px;border-radius:12px;border:1px solid var(--border);transition:border-color 0.2s,box-shadow 0.2s;background:var(--white);}
-.why-item:hover{border-color:rgba(201,168,76,0.38);box-shadow:0 4px 14px var(--shadow);}
-.why-check{width:33px;height:33px;background:rgba(201,168,76,0.11);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;}
-.why-item h4{font-size:0.9rem;font-weight:600;color:var(--navy);margin-bottom:3px;}
-.why-item p{font-size:0.78rem;color:var(--text-muted);line-height:1.6;}
-.why-right{background:var(--navy);border-radius:18px;padding:36px 30px;text-align:center;position:relative;overflow:hidden;}
-.why-right::before{content:'';position:absolute;top:-60px;right:-60px;width:180px;height:180px;border-radius:50%;background:rgba(201,168,76,0.07);}
-.why-right h3{font-family:'Playfair Display',serif;font-size:1.55rem;color:var(--white);margin-bottom:9px;}
-.why-right > p{font-size:0.83rem;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:22px;font-weight:300;}
-.info-box{background:rgba(201,168,76,0.11);border:1px solid rgba(201,168,76,0.26);border-radius:10px;padding:14px;margin-bottom:14px;}
-.info-box .ib-val{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--gold);}
-.info-box .ib-sub{font-size:0.72rem;color:rgba(255,255,255,0.4);}
-.integrity{background:#0b1d38;padding:44px 5%;text-align:center;}
-.integrity-inner{max-width:720px;margin:0 auto;}
-.integrity h3{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--gold);margin-bottom:11px;}
-.integrity p{font-size:0.86rem;color:rgba(255,255,255,0.58);line-height:1.88;font-weight:300;}
-#contact{background:linear-gradient(135deg,var(--navy) 0%,#1a3a6b 100%);text-align:center;padding:92px 5%;position:relative;overflow:hidden;}
-#contact::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 50%,rgba(201,168,76,0.07) 0%,transparent 70%);pointer-events:none;}
-#contact .section-title{color:var(--white);margin-bottom:11px;}
-#contact .section-sub{color:rgba(255,255,255,0.56);max-width:470px;margin:0 auto 38px;}
-.contact-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;}
-.wa-btn{background:#25D366;color:var(--white);padding:14px 32px;border-radius:10px;font-weight:700;font-size:0.92rem;text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:background 0.2s,transform 0.15s,box-shadow 0.2s;box-shadow:0 4px 22px rgba(37,211,102,0.35);}
-.wa-btn:hover{background:#20bc5b;transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,211,102,0.5);}
-.wa-btn svg{width:19px;height:19px;fill:white;}
-footer{background:#080f1f;color:rgba(255,255,255,0.44);text-align:center;padding:26px 5%;font-size:0.78rem;}
-.footer-logo{font-family:'Playfair Display',serif;font-size:1.18rem;color:var(--white);margin-bottom:8px;display:block;}
-.footer-logo span{color:var(--gold);}
-footer a{color:var(--gold);text-decoration:none;}
-.footer-links{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin:9px 0;}
-.footer-links a{color:rgba(255,255,255,0.43);font-size:0.76rem;}
-.footer-links a:hover{color:var(--gold);}
-.wa-float{position:fixed;bottom:26px;right:26px;z-index:999;background:#25D366;color:white;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,0.5);text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;animation:waPop 0.5s 1s ease both;}
-.wa-float:hover{transform:scale(1.1);box-shadow:0 10px 32px rgba(37,211,102,0.65);}
-.wa-float svg{width:27px;height:27px;fill:white;}
-@keyframes waPop{from{opacity:0;transform:scale(0.5)}to{opacity:1;transform:scale(1)}}
-@media(max-width:960px){.nav-links{display:none;}.nav-toggle{display:flex;}.hero-inner{grid-template-columns:1fr;}.hero-cards{display:none;}.why-grid{grid-template-columns:1fr;gap:30px;}}
-@media(max-width:600px){.hero-stats{flex-wrap:wrap;gap:18px;}.services-tabs{gap:5px;}.tab-btn{padding:7px 13px;font-size:0.75rem;}}
-</style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Penn Writings — Premium Academic Support, Tutoring & Editing for Students</title>
+<meta name="description" content="Penn Writings offers premium academic support, tutoring, editing, and research guidance for university students. Essay help, dissertation support, referencing, and proofreading — confidential and student-friendly." />
+<meta name="keywords" content="academic support, essay help, dissertation help, university tutoring, editing services, referencing, Harvard, APA, proofreading, Penn Writings" />
+<meta name="author" content="Penn Writings" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Penn Writings — Premium Academic Support for University Students" />
+<meta property="og:description" content="Tutoring, editing, research guidance, and model answers for students worldwide. Upload your brief and get expert support." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://pennwritings.com/" />
+<meta property="og:image" content="assets/img/og-image.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="assets/css/style.css" />
+
+<!-- Schema: Organization + ProfessionalService -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Penn Writings",
+  "url": "https://pennwritings.com/",
+  "logo": "https://pennwritings.com/assets/img/logo.png",
+  "description": "Premium academic support, tutoring, editing and research guidance for university students worldwide.",
+  "telephone": "+92 312 0636227",
+  "priceRange": "$$",
+  "areaServed": "Worldwide",
+  "serviceType": ["Academic Tutoring","Editing & Proofreading","Research Guidance","Dissertation Support"],
+  "sameAs": []
+}
+</script>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">Penn <span>Writings</span></a>
-  <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#how-it-works">How It Works</a></li>
-    <li><a href="#testimonials">Testimonials</a></li>
-    <li><a href="#why-us">Why Us</a></li>
-    <li><a href="https://wa.me/923120636227" target="_blank" class="nav-cta">Get Help Now</a></li>
-  </ul>
-  <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#services" onclick="closeMenu()">Services</a>
-  <a href="#pricing" onclick="closeMenu()">Pricing</a>
-  <a href="#how-it-works" onclick="closeMenu()">How It Works</a>
-  <a href="#testimonials" onclick="closeMenu()">Testimonials</a>
-  <a href="#why-us" onclick="closeMenu()">Why Us</a>
-  <a href="#contact" onclick="closeMenu()">Contact</a>
-  <a href="https://wa.me/923120636227" target="_blank" style="color:#25D366!important;">💬 WhatsApp Us</a>
+<!-- Preloader -->
+<div class="preloader" aria-hidden="true">
+  <div class="preloader-mark">P</div>
 </div>
 
+<!-- Header -->
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="logo" aria-label="Penn Writings home">
+      <span class="logo-mark">P</span>
+      <span>Penn Writings</span>
+    </a>
+
+    <nav aria-label="Primary">
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="upload-brief.html">Upload Brief</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-cta">
+      <a href="upload-brief.html" class="btn btn-primary btn-sm">Upload Brief</a>
+    </div>
+
+    <button class="hamburger" aria-label="Toggle menu" aria-controls="navMenu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
 <!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-bg"></div><div class="hero-grid"></div>
-  <div class="hero-inner">
-    <div>
-      <div class="hero-tag">Trusted Academic Support</div>
-      <h1>Write <em>Smarter,</em><br>Score <em>Higher.</em></h1>
-      <p class="hero-lead">Penn Writings provides professional academic support across all subjects — from business essays and dissertations to research papers and case studies. Expert help, delivered on time, every time.</p>
-      <div class="hero-btns">
-        <a href="https://wa.me/923120636227" target="_blank" class="btn-primary">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-content reveal">
+      <span class="eyebrow">Premium Academic Support</span>
+      <h1>Elevate Your Academic Work with <span class="accent">Expert</span> Guidance</h1>
+      <p class="hero-lead">
+        Tutoring, model answers, editing, and research support for university students.
+        Confidential, professional, and crafted to help you learn — not shortcut your way through.
+      </p>
+      <div class="hero-actions">
+        <a href="upload-brief.html" class="btn btn-primary">
+          Upload Your Brief →
+        </a>
+        <a href="https://wa.me/923120636227" class="btn btn-whatsapp" target="_blank" rel="noopener">
           WhatsApp Us
         </a>
-        <a href="#services" class="btn-secondary">Explore Services →</a>
       </div>
+
       <div class="hero-stats">
-        <div class="stat"><div class="stat-num">2,400+</div><div class="stat-label">Orders Completed</div></div>
-        <div class="stat"><div class="stat-num">98%</div><div class="stat-label">Satisfaction Rate</div></div>
-        <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Always Available</div></div>
-        <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Subjects Covered</div></div>
+        <div>
+          <div class="stat-num"><span data-counter="2400" data-suffix="+">0</span></div>
+          <div class="stat-label">STUDENTS SUPPORTED</div>
+        </div>
+        <div>
+          <div class="stat-num"><span data-counter="98" data-suffix="%">0</span></div>
+          <div class="stat-label">SATISFACTION RATE</div>
+        </div>
+        <div>
+          <div class="stat-num"><span data-counter="50" data-suffix="+">0</span></div>
+          <div class="stat-label">EXPERT TUTORS</div>
+        </div>
       </div>
     </div>
-    <div class="hero-cards">
-      <div class="hcard"><span class="hcard-icon">📊</span><h4>Business &amp; Management</h4><p>Essays, case studies, strategic reports &amp; more.</p></div>
-      <div class="hcard"><span class="hcard-icon">🎓</span><h4>Dissertations &amp; Research</h4><p>Full chapter support, proposals &amp; literature reviews.</p></div>
-      <div class="hcard"><span class="hcard-icon">✏️</span><h4>Editing &amp; Proofreading</h4><p>Grammar, clarity, referencing &amp; academic tone.</p></div>
+
+    <div class="hero-visual reveal reveal-delay-2" aria-hidden="true">
+      <div class="hero-card hero-card-1">
+        <div class="hero-card-icon">📚</div>
+        <h4>Essay Tutoring</h4>
+        <p>Structure, argument & critical analysis support</p>
+      </div>
+      <div class="hero-card hero-card-3">
+        <h4>Verified</h4>
+        <p>Subject-matter experts only</p>
+      </div>
+      <div class="hero-card hero-card-2">
+        <div class="hero-card-icon">✓</div>
+        <h4>Dissertation Help</h4>
+        <p>Methodology, literature review & editing</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- INTRO BAND -->
-<div class="intro-band">
-  <p>We provide <strong>professional academic support</strong> for students across all subjects, with a strong focus on <strong>Business and Management</strong>. Our aim is to help students understand their coursework, improve their academic writing, and produce <strong>well-structured, properly researched work.</strong></p>
-</div>
+<!-- SERVICES PREVIEW -->
+<section class="section">
+  <div class="container">
+    <div class="reveal text-center">
+      <span class="eyebrow center">What We Offer</span>
+      <h2 class="section-title">Academic Support, <em style="color:var(--gold-500);font-family:var(--font-display)">Tailored</em> to You</h2>
+      <p class="section-subtitle">From structuring your essay to refining your dissertation — every service is designed to help you understand your subject more deeply.</p>
+    </div>
 
-<!-- SERVICES -->
-<section id="services">
-  <div class="reveal" style="margin-bottom:32px;">
-    <span class="section-label">What We Cover</span>
-    <h2 class="section-title">Full-Spectrum Academic Support</h2>
-    <p class="section-sub">Browse by category — click a tab to explore everything we offer in that area.</p>
-  </div>
-  <div class="services-tabs reveal">
-    <button class="tab-btn active" onclick="showTab('business',this)">📊 Business &amp; Management</button>
-    <button class="tab-btn" onclick="showTab('research',this)">🔬 Research &amp; Dissertation</button>
-    <button class="tab-btn" onclick="showTab('essays',this)">📝 Essays &amp; Assignments</button>
-    <button class="tab-btn" onclick="showTab('subjects',this)">📚 All Subjects</button>
-  </div>
+    <div class="grid grid-3">
+      <article class="service-card reveal">
+        <div class="service-icon">📝</div>
+        <h3>Essay Writing Support</h3>
+        <p>Structure, argument flow, evidence integration, and academic tone — refined together until your essay reads with clarity and confidence.</p>
+        <a href="services.html#essays" class="learn-more">Learn more →</a>
+      </article>
 
-  <div class="service-panel active" id="tab-business">
-    <div class="scard reveal">
-      <div class="scard-icon">📝</div><h3>Business Essays &amp; Reports</h3>
-      <ul><li>Analytical &amp; argumentative business essays</li><li>Formal reports with executive summaries</li><li>Critical evaluations and reflective reports</li><li>Portfolios and personal development plans</li></ul>
-      <a href="https://wa.me/923120636227" target="_blank" class="scard-link">Order Now →</a>
-    </div>
-    <div class="scard reveal">
-      <div class="scard-icon">🔍</div><h3>Case Study Analysis</h3>
-      <ul><li>SWOT, PESTLE, Porter's Five Forces</li><li>Strategic analysis and competitive positioning</li><li>Real-world business case evaluations</li><li>Industry-specific case breakdowns</li></ul>
-      <a href="https://wa.me/923120636227" target="_blank" class="scard-link">Order Now →</a>
-    </div>
-    <div class="scard reveal">
-      <div class="scard-icon">🎯</div><h3>Strategic Management</h3>
-      <ul><li>Corporate strategy assignments</li><li>Business model analysis</li><li>Strategic planning and implementation</li><li>Change management reports</li></ul>
-      <a href="https://wa.me/923120636227" target="_blank" class="scard-link">Order Now →</a>
-    </div>
-    <div class="scard reveal">
-      <div class="scard-icon">📣</div><h3>Marketing Assignments</h3>
-      <ul><li>Marketing plans and strategies</li><li>Consumer behaviour analysis</li><li>Digital marketing reports</li><li>Brand and market research</li></ul>
-      <a href="https://wa.me/923120636227" target="_blank" class="scard-link">Order Now →</a>
-    </div>
-    <div class="scard reveal">
-      <div class="scard-icon">👥</div><h3>HRM &amp; Leadership</h3>
-      <ul><li>Human resource management essays</li><li>Leadership &amp; organisational behaviour</li><li>Motivation, culture &amp; team dynamics</li><li>Talent management and retention reports</li></ul>
-      <a href="https://wa.me/923120636227" target="_blank" class="scard-link">Order Now →</a>
-    </div>
-    <div class="scard reveal">
-      <div class="scard-icon">💡</div><h3>Innovation &amp; Operations</h3>
-      <ul><li>Entrepreneurship and innovation assignments</li><li>Operations management reports</li><li>Supply chain and logistics analysis</li><li>Business research projects</li></ul>
-      <a href="https://wa.me/923120636227" target="_blank" class="scard-link">Order Now →</a>
-    </div>
-  </div>
+      <article class="service-card reveal reveal-delay-1">
+        <div class="service-icon">🎓</div>
+        <h3>Dissertation Support</h3>
+        <p>Chapter-by-chapter guidance: literature review, methodology, data analysis, and discussion — with editing at every stage.</p>
+        <a href="services.html#dissertations" class="learn-more">Learn more →</a>
+      </article>
 
-  <div class="service-panel" id="tab-research">
-    <div class="scard reveal">
-      <div class="scard-icon">📋</div><h3>Research Proposals</h3>
-      <ul><li>Topic selection and research questions</li><li>Research objectives and rationale</li><li>Preliminary literature overview</li><li>Proposed methodology outline</li></ul>
-      <a href="https://wa.me/923120636227" target="_blank" class="scard-link">Order Now →</a>
-    </div>
-    <div class="scard reveal">
-      <div class="scard-icon">📖</div><h3>Literature Reviews</h3>
-      <ul><li>Comprehensive source analysis</li><li>Thematic and chronological structures</li><li>Critical evaluation of academic works</li><li>Research gap identification</li></ul>
-      <a href="https://wa.me/923120636227" target="_blank" class="scard-link">Order Now →</a>
-    </div>
-    <div class="scard reveal">
-      <div class="scard-icon">🔬</div><h3>Methodology Chapters</h3>
-      <ul><li>Research design &amp; philosophy</li><li>Qualitative, quantitative &amp; mixed methods</li><li>Sampling, data collection &amp; ethics</li><li>Validity and reliability discussion</li></ul>
-      <a href="https://wa.me/923120636227" target="_blank" class="scard-link">Order Now →</a>
-    </div>
-    <div class="scard reveal">
-      <div class="scard-icon">📊</div><h3>Data Analysis &amp; Findings</h3>
-      <ul><li>Thematic analysis of qualitative data</li><li>Statistical interpretation guidance</li><li>Findings and results chapters</li><li>Discussion and implications</li></ul>
-      <a href="https://wa.me/923120636227" target="_blank" class="scard-link">Order Now →</a>
-    </div>
-    <div class="scard reveal">
-      <div class="scard-icon">🎓</div><h3>Full Dissertation Support</h3>
-      <ul><li>Topic selection and full structure planning</li><li>All chapters from introduction to conclusion</li><li>Recommendations and references</li><li>Final formatting and review</li></ul>
-      <a href="https://wa.me/923120636227" target="_blank" class="scard-link">Order Now →</a>
-    </div>
-    <div class="scard reveal">
-      <div class="scard-icon">🗂️</div><h3>Referencing &amp; Formatting</h3>
-      <ul><li>Harvard, APA, MLA, Chicago styles</li><li>In-text citations and reference lists</li><li>Footnotes, bibliographies &amp; appendices</li><li>Final document formatting and layout</li></ul>
-      <a href="https://wa.me/923120636227" target="_blank" class="scard-link">Order Now →</a>
-    </div>
-  </div>
+      <article class="service-card reveal reveal-delay-2">
+        <div class="service-icon">🔍</div>
+        <h3>Research Proposals</h3>
+        <p>Sharpen your research question, frame your rationale, and lay out a methodology that examiners take seriously.</p>
+        <a href="services.html#proposals" class="learn-more">Learn more →</a>
+      </article>
 
-  <div class="service-panel" id="tab-essays">
-    <div class="scard reveal">
-      <div class="scard-icon">✍️</div><h3>Academic Essay Writing</h3>
-      <ul><li>Argumentative, analytical, descriptive</li><li>Critical and reflective essays</li><li>Comparative and evaluative essays</li><li>Strong intro, body &amp; conclusion structure</li></ul>
-      <a href="https://wa.me/923120636227" target="_blank" class="scard-link">Order Now →</a>
-    </div>
-    <div class="scard reveal">
-      <div class="scard-icon">📑</div><h3>Report Writing</h3>
-      <ul><li>Structured academic and business reports</li><li>Lab and field reports</li><li>Technical and project reports</li><li>Executive summaries and abstracts</li></ul>
-      <a href="https://wa.me/923120636227" target="_blank" class="scard-link">Order Now →</a>
-    </div>
-    <div class="scard reveal">
-      <div class="scard-icon">🔎</div><h3>Critical Analysis</h3>
-      <ul><li>Article and journal critiques</li><li>Book reviews and source evaluation</li><li>Policy analysis and case critiques</li><li>Evidence-based argumentation</li></ul>
-      <a href="https://wa.me/923120636227" target="_blank" class="scard-link">Order Now →</a>
-    </div>
-    <div class="scard reveal">
-      <div class="scard-icon">✏️</div><h3>Editing &amp; Proofreading</h3>
-      <ul><li>Grammar, spelling &amp; punctuation</li><li>Academic tone &amp; clarity improvement</li><li>Structure and flow enhancement</li><li>Plagiarism check &amp; referencing fix</li></ul>
-      <a href="https://wa.me/923120636227" target="_blank" class="scard-link">Order Now →</a>
-    </div>
-    <div class="scard reveal">
-      <div class="scard-icon">📚</div><h3>Coursework &amp; Assignments</h3>
-      <ul><li>Module-specific coursework</li><li>Reflective journals and diaries</li><li>Annotated bibliographies</li><li>Presentations and posters</li></ul>
-      <a href="https://wa.me/923120636227" target="_blank" class="scard-link">Order Now →</a>
-    </div>
-    <div class="scard reveal">
-      <div class="scard-icon">🗣️</div><h3>Referencing Styles</h3>
-      <ul><li>Harvard referencing (most common)</li><li>APA 6th and 7th edition</li><li>MLA, Chicago, Vancouver, OSCOLA</li><li>Any university-specific guide</li></ul>
-      <a href="https://wa.me/923120636227" target="_blank" class="scard-link">Order Now →</a>
-    </div>
-  </div>
+      <article class="service-card reveal">
+        <div class="service-icon">💼</div>
+        <h3>Business & Management</h3>
+        <p>Case studies, strategic analyses, financial reports, and management essays — backed by real-world frameworks.</p>
+        <a href="services.html#business" class="learn-more">Learn more →</a>
+      </article>
 
-  <div class="service-panel" id="tab-subjects">
-    <div class="scard reveal" style="grid-column:1/-1;background:var(--navy);border-color:rgba(201,168,76,0.2);">
-      <h3 style="color:var(--white);font-size:1.05rem;margin-bottom:6px;">All Subjects We Support</h3>
-      <p style="font-size:0.8rem;color:rgba(255,255,255,0.5);margin-bottom:16px;line-height:1.6;">Our expert writers cover a wide range of academic disciplines at all levels — undergraduate, postgraduate, and PhD.</p>
-      <div class="subjects-grid">
-        <span class="subject-chip">Health &amp; Social Care</span><span class="subject-chip">Nursing &amp; Healthcare</span><span class="subject-chip">Education</span><span class="subject-chip">Psychology</span><span class="subject-chip">Sociology</span><span class="subject-chip">Law</span><span class="subject-chip">Engineering &amp; Technology</span><span class="subject-chip">Project Management</span><span class="subject-chip">IT &amp; Computer Science</span><span class="subject-chip">Finance &amp; Accounting</span><span class="subject-chip">Economics</span><span class="subject-chip">Tourism &amp; Hospitality</span><span class="subject-chip">Ethics &amp; Sustainability</span><span class="subject-chip">Business Management</span><span class="subject-chip">Marketing</span><span class="subject-chip">HRM</span><span class="subject-chip">Strategic Management</span><span class="subject-chip">Operations Management</span><span class="subject-chip">Entrepreneurship</span><span class="subject-chip">Leadership Studies</span>
-      </div>
-      <a href="https://wa.me/923120636227" target="_blank" class="scard-link" style="margin-top:18px;">Don't see your subject? Message us →</a>
+      <article class="service-card reveal reveal-delay-1">
+        <div class="service-icon">✏️</div>
+        <h3>Editing & Proofreading</h3>
+        <p>Polish your draft for grammar, syntax, clarity, and academic tone. We edit; you keep ownership of your voice.</p>
+        <a href="services.html#editing" class="learn-more">Learn more →</a>
+      </article>
+
+      <article class="service-card reveal reveal-delay-2">
+        <div class="service-icon">📑</div>
+        <h3>Referencing & Formatting</h3>
+        <p>Harvard, APA, MLA, Chicago, OSCOLA, IEEE — citations corrected and formatted to your university's exact rules.</p>
+        <a href="services.html#referencing" class="learn-more">Learn more →</a>
+      </article>
+    </div>
+
+    <div class="text-center" style="margin-top:2.5rem">
+      <a href="services.html" class="btn btn-outline">View All Services</a>
     </div>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
-<section id="how-it-works">
-  <div class="reveal" style="text-align:center;">
-    <span class="section-label">Simple Process</span>
-    <h2 class="section-title">Four Easy Steps</h2>
-    <p class="section-sub" style="margin:0 auto;max-width:470px;">From your first message to final delivery — quick, simple, and stress-free.</p>
-  </div>
-  <div class="steps-row">
-    <div class="step reveal"><div class="step-num">1</div><h4>Contact Us</h4><p>Message us on WhatsApp with your subject, word count, deadline, and any specific instructions.</p></div>
-    <div class="step reveal"><div class="step-num">2</div><h4>Get a Quote</h4><p>We review your order and send a fair, transparent price immediately — no hidden fees.</p></div>
-    <div class="step reveal"><div class="step-num">3</div><h4>Expert Writes</h4><p>A subject-matched expert gets to work, following your guidelines and academic standards.</p></div>
-    <div class="step reveal"><div class="step-num">4</div><h4>Receive &amp; Revise</h4><p>Receive your work before the deadline. Free unlimited revisions until you're fully satisfied.</p></div>
-  </div>
-</section>
+<section class="section" style="background:var(--cream-200)">
+  <div class="container">
+    <div class="reveal text-center">
+      <span class="eyebrow center">Process</span>
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-subtitle">Four simple steps from upload to delivery — every step backed by an expert tutor.</p>
+    </div>
 
-<!-- PRICING -->
-<section id="pricing">
-  <div class="reveal" style="margin-bottom:0;">
-    <span class="section-label">Transparent Pricing</span>
-    <h2 class="section-title">Simple, Fair Pricing</h2>
-    <p class="section-sub">No hidden charges. All prices in British Pounds (£). Longer work = better value per word.</p>
-  </div>
-  <div class="pricing-grid">
-    <div class="price-card reveal">
-      <div class="price-label">Short Essay</div>
-      <div class="price-title">1,000 Words</div>
-      <div class="price-amount"><sup>£</sup>20</div>
-      <div class="price-desc">Short assignments &amp; quick tasks</div>
-      <div class="price-divider"></div>
-      <ul class="price-features"><li>Original, plagiarism-free content</li><li>Correct referencing style</li><li>Free revisions included</li><li>On-time delivery</li></ul>
-      <a href="https://wa.me/923120636227" target="_blank" class="price-btn price-btn-outline">Order Now</a>
-    </div>
-    <div class="price-card reveal">
-      <div class="price-label">Standard Essay</div>
-      <div class="price-title">1,500 Words</div>
-      <div class="price-amount"><sup>£</sup>30</div>
-      <div class="price-desc">Most common essay and coursework length</div>
-      <div class="price-divider"></div>
-      <ul class="price-features"><li>Original, plagiarism-free content</li><li>Harvard / APA / MLA referencing</li><li>Free revisions included</li><li>On-time delivery</li></ul>
-      <a href="https://wa.me/923120636227" target="_blank" class="price-btn price-btn-outline">Order Now</a>
-    </div>
-    <div class="price-card featured reveal">
-      <div class="featured-badge">Most Popular</div>
-      <div class="price-label">Extended Essay</div>
-      <div class="price-title">2,000 Words</div>
-      <div class="price-amount"><sup>£</sup>40</div>
-      <div class="price-desc">Detailed essays &amp; in-depth reports</div>
-      <div class="price-divider"></div>
-      <ul class="price-features"><li>Original, plagiarism-free content</li><li>In-depth research &amp; analysis</li><li>Free revisions included</li><li>Priority delivery</li></ul>
-      <a href="https://wa.me/923120636227" target="_blank" class="price-btn price-btn-fill">Order Now</a>
-    </div>
-    <div class="price-card reveal">
-      <div class="price-label">Long Assignment</div>
-      <div class="price-title">3,000 Words</div>
-      <div class="price-amount"><sup>£</sup>65</div>
-      <div class="price-desc">Reports, case studies &amp; projects</div>
-      <div class="price-divider"></div>
-      <ul class="price-features"><li>Original, plagiarism-free content</li><li>Comprehensive research</li><li>Free revisions included</li><li>Full referencing &amp; structure</li></ul>
-      <a href="https://wa.me/923120636227" target="_blank" class="price-btn price-btn-outline">Order Now</a>
-    </div>
-  </div>
-
-  <div class="reveal"><h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--navy);margin-bottom:5px;">Complete Pricing Table</h3><p style="font-size:0.8rem;color:var(--text-muted);">All prices include free revisions, plagiarism-free content, and correct referencing.</p></div>
-  <div class="pricing-table-wrap reveal">
-    <table class="pricing-table">
-      <thead><tr><th>Word Count</th><th>Work Type</th><th>What's Included</th><th>Price (£)</th></tr></thead>
-      <tbody>
-        <tr><td><strong>500 words</strong></td><td>Short response / Summary</td><td>Original content, referencing, free revision</td><td>£10</td></tr>
-        <tr><td><strong>750 words</strong></td><td>Short essay / Reflection</td><td>Original content, referencing, free revision</td><td>£15</td></tr>
-        <tr><td><strong>1,000 words</strong></td><td>Essay / Short assignment</td><td>Original content, referencing, free revision</td><td>£20</td></tr>
-        <tr><td><strong>1,500 words</strong></td><td>Essay / Coursework</td><td>Original content, referencing, free revision</td><td>£30</td></tr>
-        <tr><td><strong>2,000 words</strong></td><td>Essay / Report</td><td>Research, referencing, structure, free revision</td><td>£40</td></tr>
-        <tr><td><strong>2,500 words</strong></td><td>Extended essay / Report</td><td>Research, referencing, structure, free revision</td><td>£52</td></tr>
-        <tr><td><strong>3,000 words</strong></td><td>Long essay / Case study</td><td>Full research, analysis, referencing, revision</td><td>£65</td></tr>
-        <tr><td><strong>4,000 words</strong></td><td>Major assignment / Project</td><td>Full research, analysis, referencing, revision</td><td>£85</td></tr>
-        <tr><td><strong>5,000 words</strong></td><td>Long report / Portfolio</td><td>Full research, in-depth analysis, referencing</td><td>£105</td></tr>
-        <tr><td><strong>6,000 words</strong></td><td>Major research project</td><td>Full research, in-depth analysis, referencing</td><td>£125</td></tr>
-        <tr><td><strong>8,000 words</strong></td><td>Extended research project</td><td>Full research, all sections, referencing</td><td>£160</td></tr>
-        <tr class="diss-row"><td><strong>10,000 words</strong></td><td>🎓 Dissertation</td><td>All chapters, full research, referencing, revision</td><td>£200</td></tr>
-        <tr class="diss-row"><td><strong>12,000 words</strong></td><td>🎓 Full Dissertation</td><td>All chapters, full research, referencing, revision</td><td>£235</td></tr>
-        <tr class="diss-row"><td><strong>15,000 words</strong></td><td>🎓 Masters Dissertation</td><td>All chapters, full research, referencing, revision</td><td>£285</td></tr>
-        <tr class="diss-row"><td><strong>20,000+ words</strong></td><td>🎓 PhD / Full Thesis</td><td>Full dissertation support — tailored to your programme</td><td>Custom</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p class="table-note reveal">* Prices may vary based on subject complexity, deadline urgency, and academic level. Contact us on WhatsApp for a personalised quote. Rush orders (under 24 hours) may carry a small surcharge.</p>
-  <div class="reveal" style="margin-top:26px;text-align:center;">
-    <a href="https://wa.me/923120636227" target="_blank" class="btn-primary" style="display:inline-flex;">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Get a Free Quote on WhatsApp
-    </a>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials">
-  <div class="reveal" style="text-align:center;">
-    <span class="section-label" style="color:var(--gold);">Student Reviews</span>
-    <h2 class="section-title">What Our Students Say</h2>
-    <p class="section-sub" style="margin:0 auto;max-width:460px;">Real feedback from real students who trusted Penn Writings with their academic success.</p>
-  </div>
-  <div class="tgrid">
-    <div class="tcard reveal"><div class="stars">★★★★★</div><p class="ttext">"Penn Writings saved my semester! I had a 4,000-word business essay due in 48 hours and they delivered flawlessly. The SWOT analysis was thorough and exactly what my professor expected."</p><div class="tauthor"><div class="tavatar" style="background:#f0d080;">A</div><div><div class="tname">Ayesha M.</div><div class="trole">Business Management, UK</div></div></div></div>
-    <div class="tcard reveal"><div class="stars">★★★★★</div><p class="ttext">"I was struggling with my dissertation methodology chapter. The expert wrote it perfectly and explained the research design so I could defend it confidently in my viva. Got a distinction!"</p><div class="tauthor"><div class="tavatar" style="background:#9FE1CB;">R</div><div><div class="tname">Rahul K.</div><div class="trole">MSc Finance, Australia</div></div></div></div>
-    <div class="tcard reveal"><div class="stars">★★★★★</div><p class="ttext">"Fast, professional and affordable. I've ordered three essays and each one has been excellent quality. The turnaround is unreal — even last-minute requests handled without panic."</p><div class="tauthor"><div class="tavatar" style="background:#F4C0D1;">S</div><div><div class="tname">Sofia L.</div><div class="trole">Psychology, Canada</div></div></div></div>
-    <div class="tcard reveal"><div class="stars">★★★★★</div><p class="ttext">"The strategic management case study was outstanding — Porter's Five Forces, PESTLE, everything perfectly structured. My tutor was genuinely impressed. Will definitely order again."</p><div class="tauthor"><div class="tavatar" style="background:#B5D4F4;">O</div><div><div class="tname">Omar F.</div><div class="trole">MBA, UAE</div></div></div></div>
-    <div class="tcard reveal"><div class="stars">★★★★★</div><p class="ttext">"As an international student, academic English is challenging for me. Penn Writings helped me produce work that reads naturally and meets university standards. My grades improved significantly."</p><div class="tauthor"><div class="tavatar" style="background:#C0DD97;">L</div><div><div class="tname">Lin W.</div><div class="trole">Nursing Studies, UK</div></div></div></div>
-    <div class="tcard reveal"><div class="stars">★★★★★</div><p class="ttext">"Messaged at midnight with a morning deadline. They accepted without hesitation and delivered two hours early. Absolute lifesavers — already placed my next order with them!"</p><div class="tauthor"><div class="tavatar" style="background:#FAC775;">Z</div><div><div class="tname">Zainab A.</div><div class="trole">Law, Pakistan</div></div></div></div>
-  </div>
-</section>
-
-<!-- WHY US -->
-<section id="why-us">
-  <div class="reveal">
-    <span class="section-label">Our Advantage</span>
-    <h2 class="section-title">Why Choose Penn Writings?</h2>
-    <p class="section-sub">We're not just another writing service — we're your academic partner, committed to quality, deadlines, and your success.</p>
-  </div>
-  <div class="why-grid">
-    <div class="why-items">
-      <div class="why-item reveal"><div class="why-check">🎯</div><div><h4>100% Original Content</h4><p>Every piece is written from scratch. Plagiarism checks via Turnitin and Grammarly before delivery.</p></div></div>
-      <div class="why-item reveal"><div class="why-check">⏱️</div><div><h4>On-Time Delivery, Always</h4><p>Whether it's 6 hours or 6 weeks — we take your deadline as seriously as you do.</p></div></div>
-      <div class="why-item reveal"><div class="why-check">🔒</div><div><h4>Complete Confidentiality</h4><p>Your identity and order details are fully protected. We never share client information under any circumstances.</p></div></div>
-      <div class="why-item reveal"><div class="why-check">🔄</div><div><h4>Free Unlimited Revisions</h4><p>Not satisfied? We revise your work as many times as needed at absolutely no extra cost.</p></div></div>
-      <div class="why-item reveal"><div class="why-check">🧑‍🎓</div><div><h4>Expert Subject Writers</h4><p>Our team holds Master's and PhD degrees — every order matched to a subject specialist.</p></div></div>
-      <div class="why-item reveal"><div class="why-check">💬</div><div><h4>Direct WhatsApp Support</h4><p>No tickets or bots — speak directly with our team on WhatsApp, 24 hours a day, 7 days a week.</p></div></div>
-    </div>
-    <div class="why-right reveal">
-      <h3>Start Your Order Now</h3>
-      <p>Send your requirements on WhatsApp and receive a free quote within minutes.</p>
-      <div class="info-box"><div class="ib-val">From £10</div><div class="ib-sub">Starting price for 500 words</div></div>
-      <div class="info-box"><div class="ib-val">From £200</div><div class="ib-sub">Full dissertation support (10,000 words)</div></div>
-      <a href="https://wa.me/923120636227" target="_blank" class="btn-primary" style="width:100%;justify-content:center;margin-top:6px;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Chat on WhatsApp Now
-      </a>
-      <p style="font-size:0.71rem;margin-top:11px;color:rgba(255,255,255,0.3);">Available 24/7 · Response within minutes</p>
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <div class="step-num">1</div>
+        <h4>Upload Brief</h4>
+        <p>Send us your assignment, rubric, and any guidelines. Confidential by default.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-1">
+        <div class="step-num">2</div>
+        <h4>Get a Quote</h4>
+        <p>We'll match you with the right expert and confirm a fair price within hours.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-2">
+        <div class="step-num">3</div>
+        <h4>Expert Works</h4>
+        <p>A subject specialist drafts, researches, or edits — keeping you updated throughout.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-3">
+        <div class="step-num">4</div>
+        <h4>Receive & Refine</h4>
+        <p>You receive the work on time, with free revisions until you're satisfied.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- INTEGRITY -->
-<div class="integrity">
-  <div class="integrity-inner">
-    <h3>📋 Academic Integrity Notice</h3>
-    <p>Our services are designed to provide <strong style="color:rgba(255,255,255,0.82);">study support, guidance, tutoring, editing, and academic development</strong>. All work provided by Penn Writings is intended as reference material, model answers, and learning support. Students are encouraged to use our support responsibly and submit work that reflects their own understanding and learning. Penn Writings promotes academic growth and development for every student we work with.</p>
-  </div>
-</div>
+<!-- TESTIMONIALS PREVIEW -->
+<section class="section">
+  <div class="container">
+    <div class="reveal text-center">
+      <span class="eyebrow center">Student Voices</span>
+      <h2 class="section-title">Trusted by Students Worldwide</h2>
+      <p class="section-subtitle">From first-year undergrads to PhD candidates — read why students return to Penn Writings term after term.</p>
+    </div>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="reveal">
-    <span class="section-label">Get In Touch</span>
-    <h2 class="section-title">Ready to Get Started?</h2>
-    <p class="section-sub">One message is all it takes. Our team is available around the clock — reach us on WhatsApp for a free, instant quote.</p>
-    <div class="contact-btns">
-      <a href="https://wa.me/923120636227" target="_blank" class="wa-btn">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp: +92 312 0636227
-      </a>
-      <a href="#pricing" class="btn-secondary" style="padding:14px 32px;color:white;">View Full Pricing →</a>
+    <div class="grid grid-3">
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>"My dissertation methodology was a mess until Penn Writings walked me through it. The tutor explained everything — I actually understood my own work by the end."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">SM</div>
+          <div>
+            <div class="author-name">Sarah M.</div>
+            <div class="author-role">MSc Marketing, UK</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="stars">★★★★★</div>
+        <blockquote>"The editing was exceptional. They didn't rewrite my voice — they polished it. My grade jumped two bands and my supervisor noticed the clarity."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">JT</div>
+          <div>
+            <div class="author-name">James T.</div>
+            <div class="author-role">BA Business, Australia</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Harvard referencing was eating my time. They fixed every citation and bibliography entry in under 24 hours. Worth every penny."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">AK</div>
+          <div>
+            <div class="author-name">Aisha K.</div>
+            <div class="author-role">LLB Law, UK</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <span class="footer-logo">Penn <span>Writings</span></span>
-  <div class="footer-links">
-    <a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#how-it-works">How It Works</a><a href="#testimonials">Testimonials</a><a href="#why-us">Why Us</a><a href="#contact">Contact</a>
+<!-- BLOG PREVIEW -->
+<section class="section" style="background:var(--cream-200)">
+  <div class="container">
+    <div class="reveal text-center">
+      <span class="eyebrow center">From the Journal</span>
+      <h2 class="section-title">Academic Insights & Study Guides</h2>
+      <p class="section-subtitle">Free resources written by our tutors to help you write better, study smarter, and reference flawlessly.</p>
+    </div>
+
+    <div class="blog-grid">
+      <article class="blog-card reveal">
+        <div class="blog-image">
+          <span class="badge">Essay Writing</span>
+          <span class="blog-icon">E</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span>📅 Mar 12, 2026</span>
+            <span>⏱ 8 min read</span>
+          </div>
+          <h3><a href="blog-post.html">How to Structure a University Essay That Actually Scores Well</a></h3>
+          <p>The introduction–body–conclusion formula isn't enough at degree level. Here's the structure tutors actually want to see.</p>
+          <a href="blog-post.html" class="read-more">Read article →</a>
+        </div>
+      </article>
+
+      <article class="blog-card reveal reveal-delay-1">
+        <div class="blog-image">
+          <span class="badge">Referencing</span>
+          <span class="blog-icon">H</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span>📅 Mar 05, 2026</span>
+            <span>⏱ 12 min read</span>
+          </div>
+          <h3><a href="blog-post.html">The Complete Harvard Referencing Guide for Students (2026)</a></h3>
+          <p>From in-text citations to your reference list — every Harvard rule, with worked examples for books, journals, websites and more.</p>
+          <a href="blog-post.html" class="read-more">Read article →</a>
+        </div>
+      </article>
+
+      <article class="blog-card reveal reveal-delay-2">
+        <div class="blog-image">
+          <span class="badge">Dissertation</span>
+          <span class="blog-icon">D</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span>📅 Feb 28, 2026</span>
+            <span>⏱ 10 min read</span>
+          </div>
+          <h3><a href="blog-post.html">How to Write a Dissertation Proposal Your Supervisor Will Approve</a></h3>
+          <p>The five sections every proposal needs, plus the most common reasons proposals get sent back for rewrites.</p>
+          <a href="blog-post.html" class="read-more">Read article →</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="text-center" style="margin-top:2.5rem">
+      <a href="blog.html" class="btn btn-outline">Read More Articles</a>
+    </div>
   </div>
-  <p>© 2025 Penn Writings. All rights reserved. | Professional Academic Support for Students Worldwide.</p>
-  <p style="margin-top:6px;"><a href="https://wa.me/923120636227" target="_blank">WhatsApp: +92 312 0636227</a></p>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-band section">
+  <div class="container">
+    <div class="reveal">
+      <h2>Ready to <span class="accent">Elevate</span> Your Work?</h2>
+      <p>Upload your brief and we'll get back within hours. Or send us a quick WhatsApp message — whichever's easier.</p>
+      <div class="actions">
+        <a href="upload-brief.html" class="btn btn-primary">Upload Your Brief</a>
+        <a href="https://wa.me/923120636227" class="btn btn-whatsapp" target="_blank" rel="noopener">WhatsApp Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">
+          <span class="logo-mark">P</span>
+          Penn Writings
+        </div>
+        <p>Premium academic support for university students worldwide. Tutoring, editing, research guidance — built around your learning.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#essays">Essay Support</a></li>
+          <li><a href="services.html#dissertations">Dissertation Help</a></li>
+          <li><a href="services.html#editing">Editing</a></li>
+          <li><a href="services.html#referencing">Referencing</a></li>
+          <li><a href="services.html#business">Business & Management</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Get in Touch</h5>
+        <ul>
+          <li><a href="https://wa.me/923120636227" target="_blank" rel="noopener">WhatsApp: +92 312 0636227</a></li>
+          <li><a href="mailto:hello@pennwritings.com">hello@pennwritings.com</a></li>
+          <li><a href="upload-brief.html">Upload a Brief</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Penn Writings. All rights reserved.</span>
+      <span><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Refund Policy</a></span>
+
+      <div class="integrity">
+        <strong>Academic Integrity Notice:</strong> Penn Writings provides tutoring, model answers, research guidance, editing, and learning support. All work delivered is intended for reference, study, and skill development. Students are responsible for using our materials in line with their institution's academic integrity policies.
+      </div>
+    </div>
+  </div>
 </footer>
 
-<!-- FLOATING WHATSAPP -->
-<a href="https://wa.me/923120636227" target="_blank" class="wa-float" title="Chat on WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+<!-- Floating buttons -->
+<a href="https://wa.me/923120636227" class="float-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.84 11.9L4 20l4.21-1.1a7.93 7.93 0 0 0 3.84.98h.01a7.94 7.94 0 0 0 5.54-13.56zM12.05 18.5a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.6 6.6 0 1 1 12.23-3.5 6.6 6.6 0 0 1-6.64 6.6zm3.62-4.94c-.2-.1-1.17-.58-1.35-.64-.18-.07-.31-.1-.45.1-.13.2-.51.64-.62.77-.12.13-.23.15-.43.05-.2-.1-.84-.31-1.6-.99-.6-.53-.99-1.18-1.11-1.38-.12-.2-.01-.31.09-.4.09-.09.2-.23.3-.35.1-.12.13-.2.2-.33.06-.13.03-.25-.02-.35-.05-.1-.45-1.08-.62-1.48-.16-.39-.32-.34-.45-.35-.12 0-.25-.02-.39-.02-.13 0-.35.05-.53.25-.18.2-.7.68-.7 1.66 0 .98.71 1.92.81 2.05.1.13 1.4 2.13 3.4 2.99.47.2.84.32 1.13.41.48.15.91.13 1.25.08.38-.06 1.17-.48 1.34-.95.16-.46.16-.86.12-.94-.05-.1-.18-.15-.38-.25z"/></svg>
 </a>
+<button class="float-top" aria-label="Back to top">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
 
-<script>
-function showTab(id,btn){document.querySelectorAll('.service-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');}
-const reveals=document.querySelectorAll('.reveal');
-const observer=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*65);observer.unobserve(e.target);}});},{threshold:0.1});
-reveals.forEach(el=>observer.observe(el));
-function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
-function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');}
-const nav=document.querySelector('nav');
-window.addEventListener('scroll',()=>{nav.style.boxShadow=window.scrollY>60?'0 4px 22px rgba(0,0,0,0.3)':'none';});
-</script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
